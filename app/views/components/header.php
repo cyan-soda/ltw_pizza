@@ -1,56 +1,71 @@
 <header class="page-header">
-    <div class="page-header__top">
-        <div class="uk-container">
-            <nav class="uk-navbar-container uk-navbar-transparent" data-uk-navbar="">
-            <div class="uk-navbar-left"><button class="uk-button" type="button" data-target="#offcanvas" data-uk-toggle data-uk-icon="menu"></button>
-                <ul class="uk-navbar-nav">
-                <!-- <li><a href="http://localhost/Home/Index">TRANG CHỦ</a></li>
-                <li><a href="http://localhost/assignment/Home/catalog">SẢN PHẨM</a></li> -->
-                    <li><a href="http://localhost/assignment/homepage/about">Trang chủ</a></li>
-                    <li><a href="http://localhost/assignment/homepage/contact">LIÊN HỆ</a></li>
-                </ul>
-            </div>
-            <div class="uk-navbar-center">
-                <div class="logo">
-                <div class="logo__box">
-                    <a href="http://localhost/assignment/Home/index"> 
-                    <img class="logo__img logo__img--full" src="../../../assignment/public/assets/img/logococoon.png" alt="logo">
-                    </a>
+    <div class="page-header__container">
+        <div class="page-header__top">
+            <div class="container-fluid container-horizontal">
+                <img src="public/img/logo-real.png" alt="logo" class="page-header__img">
+
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    <button type="button" class="btn btn-outline-primary">Left</button>
+                    <button type="button" class="btn btn-outline-primary">Right</button>
                 </div>
-                    <img class="logo__img logo__img-small" src="../../../assignment/public/assets/img/cocoon-text-logo.png" alt="logo">
-                </div>
-            </div>
-            <div class="uk-navbar-right">
-                <ul class="uk-navbar-nav">
-                <li><a href="http://localhost/assignment/News/index">TIN TỨC</a></li>
-                <li><a href="http://localhost/assignment/Home/contact">LIÊN HỆ</a></li>
-                </ul>
-            </div>
-            </nav>
-        </div>
-        </div>
-        <div class="page-header__bottom">
-        <div class="uk-container">
-            <div class="uk-navbar-container uk-navbar-transparent" data-uk-navbar="">
-            <div class="uk-navbar-left">
+
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                </form>
+
                 <div>
-                <div class="block-with-phone"><img src="../../../assignment/public/assets/img/icons/delivery.svg" alt="delivery" data-uk-svg>
-                    <div> <span>Liên hệ ngay với chúng tôi</span><a href="tel:0394143031">0394143031</a></div>
+                    <div>
+                        <a href="http://localhost/assignment/User/sign_in" class="btn btn-outline-success">Đăng nhập</a>
+                        <a href="http://localhost/assignment/User/sign_up" class="btn btn-outline-success">Đăng ký</a>
+                    </div>
                 </div>
-                </div>
-            </div>
-            <div class="uk-navbar-center"></div>
-            <div class="uk-navbar-right">
-                <div class="other-links">
-                <ul class="other-links-list">
-                    <li><a href="#modal-full" data-uk-toggle><span data-uk-icon="search"></span></a></li>
-                    <li><a href="http://localhost/assignment/User/sign_in"><span data-uk-icon="user"></span></a></li>
-                    <li><a href="http://localhost/assignment/Home/cart"><span data-uk-icon="cart"></span></a></li>
-                    <li><a href="http://localhost/assignment/User/log_out"><span data-uk-icon="sign-out"></span></a></li>
-                </ul>
-                </div>
-            </div>
             </div>
         </div>
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="collapse navbar-collapse" id="me-auto mb-2 mb-lg-0">
+                <div class="container-fluid navbar-container">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Khuyến mãi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">#unBox</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Pizza</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Khai vị</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Mỳ Ý</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Salad</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Thức uống</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Thế mới chất!!</a>
+                        </li>                        
+                    </ul>
+                    <!-- <div id="cart">
+                        <button type="button" class="btn btn-outline-success">
+                            <span class="cart-icon">🛒</span>
+                            Giỏ hàng
+                        </button>
+                        <span class="cart-count">0</span>
+                    </div> -->
+                    
+                    <button type="button" class="btn btn-outline-success">
+                        <span class="cart-icon">🛒</span>
+                        Giỏ hàng
+                        <span class="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
     </div>
 </header>
