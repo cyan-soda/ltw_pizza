@@ -1,0 +1,207 @@
+.page-footer {
+    padding: 100px 0;
+}
+
+.page-footer__top {
+    /* padding-bottom: 60px; */
+    background-color: #028f46;
+    padding: 10px;
+    align-items: center;
+    display: flex;
+}
+
+.page-footer__middle {
+    padding: 50px 0;
+    border-top: 1px solid rgba(221, 221, 221, 0.5);
+    border-bottom: 1px solid rgba(221, 221, 221, 0.5);
+    background: #333230;
+}
+
+.page-footer__middle .uk-navbar-nav {
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+.page-footer__middle .uk-navbar-nav li a {
+    min-height: auto;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: 1;
+    text-transform: none;
+}
+
+.page-footer__bottom {
+    padding-top: 60px;
+    background-color: #028f46;
+    color: #ffffff;
+    font-weight: lighter;
+}
+
+.page-footer__logo {
+    margin-bottom: 60px;
+    /* text-align: center; */
+}
+
+.page-footer__logo .logo {
+    display: inline-block;
+    position: relative;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+}
+
+.page-footer__logo .logo__img {
+    position: inherit;
+}
+
+.page-footer__sections {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 1200px;
+}
+
+.page-footer__contacts>*+* {
+    margin-left: 104px;
+    margin-left: 5.41667vw;
+}
+
+.page-footer__social {
+    margin-bottom: 40px;
+}
+
+.page-footer__social .social {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.page-footer__copy {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.73;
+    text-align: center;
+    text-align: center;
+}
+
+.page-footer__copy a {
+    margin-left: 5px;
+    color: #555555;
+    text-decoration: underline;
+}
+
+.contact-item-box {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    justify-content: left;
+}
+
+.contact-item-box__title {
+    display: block;
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    /* padding-bottom: 5px; */
+    color: #ffffff;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: bold;
+    letter-spacing: normal;
+    line-height: normal;
+    text-align: left;
+}
+
+.contact-item-box__value, .contact-item-box__value a {
+    color: #ffffff;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: lighter;
+    letter-spacing: normal;
+    line-height: 1.73;
+    text-align: center;
+    text-align: left;
+    text-decoration: none;
+    justify-content: left;
+}
+
+.contact-item-box__link, .contact-item-box__link a {
+    color: #ffffff;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: lighter;
+    letter-spacing: normal;
+    line-height: 1.73;
+    text-align: center;
+    text-align: left;
+    text-decoration: none;
+    justify-content: left;
+}
+
+.contact-item-box__link a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.social {
+    -webkit-box-align: left;
+    -ms-flex-align: left;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: left;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.social .social-item {
+    display: block;
+    position: relative;
+}
+
+.social .social-item+.social-item {
+    margin-left: 10px;
+}
+
+.social .social-link {
+    -webkit-box-pack: left;
+    -ms-flex-pack: left;
+    -webkit-box-align: left;
+    -ms-flex-align: left;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 50%;
+    border-color: #cccccc;
+    color: rgba(85, 85, 85, 0.35);
+    transition: 0.5s;
+}
+
+.social .social-link:hover,
+.social .social-link:focus,
+.social .social-link:active {
+    border-color: #8c702f;
+    background-color: #8c702f;
+    color: #ffffff;
+}
