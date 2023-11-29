@@ -1,5 +1,6 @@
 .page-footer {
     padding: 100px 0;
+    background-color: #028f46;
 }
 
 .page-footer__top {
@@ -93,6 +94,7 @@
     line-height: 1.73;
     text-align: center;
     text-align: center;
+    padding: 20px 0;
 }
 
 .page-footer__copy a {
