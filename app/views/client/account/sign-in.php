@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/css/account.css" />
-    <link rel="stylesheet" href="public/css/uikit.min.css" />
-    <link rel="stylesheet" href="public/css/bootstrap.min.css" />
-    <title>Test</title>
-</head>
-
-<body>
-    
-  <div class="container" style="margin-top: 30px; margin-bottom: 30px;">
+<div class="container" style="margin-top: 30px; margin-bottom: 30px;">
     <div class="center-tab">
       <div class="col-md-12" id="register">
         <div style="margin-bottom: 20px;"><h2>Đăng nhập</h2></div>
@@ -39,11 +26,4 @@
         </form>
       </div>
     </div>
-  </div>  
-      
-
-</body>
-
-
-
-</html>
+</div>  
