@@ -1,0 +1,64 @@
+
+.popuporder{
+    margin: 70px auto;
+    background: #fff;
+    border-radius: 2px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    border: 2px solid #000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.order_rowitem{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 0.5px solid gainsboro;
+    margin: 20px;
+}
+
+.popuprow_infor , .popuprowtoltal{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.popuporder_right{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.itemprice {
+    text-align: end;
+    color:black;
+    font-weight: 500;
+}
+
+.popupitemname{
+    color:black;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.popuporder_pay{
+    padding: 10px;
+    background-color: #fafafa;
+    border-radius: 5px;
+}
+
+.itempricetoltal{
+    font-size: 20px;
+    text-align: end;
+    color:red;
+    font-weight: 500;
+}
+
+
+.popuporderbutton{
+    width: 100%;
+}

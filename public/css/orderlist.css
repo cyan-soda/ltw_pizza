@@ -1,0 +1,82 @@
+.orderpage{
+    width: 1200px;
+    margin: 50px auto;
+}
+.rowproduct{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid gainsboro;
+    border-top: 1px solid gainsboro;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.order_productinfor{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.order_product_inforname{
+    font-size: 20px;
+    color:black;
+}
+
+.order_product_select{
+    font-size: 15px;
+    color: rgb(140, 140, 140);
+}
+.orderright{
+    align-items: center;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: row;
+    border: 0.5px solid gainsboro;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 5px;
+}
+
+#order_producttotalprice{
+    text-align: center;
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
+
+}
+.amountbutton{
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.deletebutton{
+    height: 50px;
+    width: 50px;
+}
+
+.totalprice{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.buttonmethod{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 20px ;
+    margin-bottom: 20px;
+}
+
+.popup_button1{
+    margin-left: 20px;
+}
+.orderbut{
+    width: 200px;
+    margin-left: 20px;
+}
