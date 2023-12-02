@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="public/css/popup_productdetail.css" />
     <link rel="stylesheet" href="public/css/uikit.min.css" />
     <link rel="stylesheet" href="public/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>Test</title>
 </head>
 
