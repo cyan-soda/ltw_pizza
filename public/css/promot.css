@@ -1,0 +1,50 @@
+.promot_container{
+    margin: 30px auto;
+    max-width: 1200px;
+    max-height: 600px;
+    display: flex;
+    flex-direction: row;
+    background-color: #fafafa;
+}
+.promot_left{
+    padding: 20px;
+}
+
+.promot_title{
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: black;
+}
+
+.promot_title:hover{
+    color:rgb(0, 106, 49);
+}
+
+.promot_detail{
+    font-size: 20px;
+    font-weight: 400;
+    color: rgb(102, 102, 102);
+}
+
+.promot_right{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .1);
+    border: 1px solid #e1e1e1;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    margin-inline: 20px;
+}
+
+.promot_detail ul{
+    padding: 5px 0px 5px 20px;
+  
+}
+
+.promot_detail li{
+    margin-bottom: 10px;  
+}
+ li::marker{
+    color: #00b041;
+ }

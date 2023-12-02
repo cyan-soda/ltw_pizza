@@ -2,8 +2,10 @@
   padding-right: 10%;
   padding-left: 10%;
 }
+.carousel-item.active img{
+  border-radius: 20px;
+}
 
 .carousel-control-prev, .carousel-control-next{
   margin: 5%;
 } 
-
