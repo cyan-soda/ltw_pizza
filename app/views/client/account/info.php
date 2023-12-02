@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/css/account.css" />
-    <link rel="stylesheet" href="public/css/uikit.min.css" />
-    <link rel="stylesheet" href="public/css/bootstrap.min.css" />
-    <title>Test</title>
-</head>
-
-<body>
-  <div class="container" style="margin-top: 113px;">
+<div class="container" style="margin-top: 113px;">
     <div class="row">
         <div class="col-lg-3">
             <div class="side-2 col-12">
@@ -119,9 +107,3 @@
         </div>
     </div>
 </div>    
-
-</body>
-
-
-
-</html>

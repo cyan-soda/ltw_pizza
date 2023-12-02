@@ -1,3 +1,30 @@
+p {
+    line-height: 20px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.main-title {
+    color: #333;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* --------- sign in, sign up ---------- */
+
 #register {
     margin: 50px auto;
     padding: 30px;
@@ -52,3 +79,96 @@ input[type="text"]:focus, input[type="password"]:focus {
     color: #028f46;
     border-color: #028f46;
 } 
+
+/* --------- user info ---------- */
+
+.user-sidebar {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+}
+
+.user-sidebar .head-box {
+    background-color: #eee;
+    padding: 15px;
+}
+
+.user-sidebar .head-box p {
+    color: #111;
+    margin-bottom: 4px;
+}
+
+.user-sidebar .head-box .username {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.user-sidebar .head-body ul {
+    padding: 15px;
+    justify-content: center;
+}
+
+.user-sidebar .head-body ul li {
+    margin-bottom: 10px;
+    text-decoration: none;
+    text-align: left;
+    list-style: none;
+}
+
+.user-sidelink ul li:not(:last-child) {
+    border-bottom: 1px solid #ccc; /* Màu và kiểu đường thẳng của bạn */
+    padding-bottom: 15px; /* Khoảng cách giữa đường thẳng và nội dung */
+    margin-bottom: 15px; /* Khoảng cách giữa các mục */
+}
+
+.user-sidelink ul li a:hover, .user-sidelink ul li a:active {
+    color: #028f46;
+}
+
+.address-table {
+    margin-top: 30px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    padding: 25px;
+    width: 100%;
+}
+
+.address-table .row a {
+    text-decoration: none;
+}
+
+.address-table .row a:hover {
+    text-decoration: underline;
+}
+
+.address-table .table {
+    width: 100%;
+    color: #111;
+}
+
+.address-table table td {
+    color: #111;
+}
+
+.address-table table td.td-title {
+    width: 150px;
+}
+
+.history-table {
+    margin-top: 25px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+}
+
+.history-table table {
+    width: 100%;
+}
+
+.history-table table thead tr th {
+    background: #eee;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+}
