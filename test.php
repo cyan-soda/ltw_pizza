@@ -18,7 +18,8 @@
 
 <body>
   <?php include '../ltw_pizza/app/views/components/header.php' ?> 
-  <?php include '../ltw_pizza/app/views/components/carousel.php' ?>
+  
+  <?php include '../ltw_pizza/app/views/components/popup_productdetail.php' ?>
   <?php include '../ltw_pizza/app/views/components/footer.php' ?>
 
 </body>
