@@ -62,31 +62,54 @@
                     }
                 </style>
                 <div class="col-lg-12">
-                    <h2 class="main-title">Thông tin chung</h2>
-                    <div class="address-table">
-                      <div class="row">
-                        <p class="col-lg-9" id="main-title-custom">Thông tin tài khoản</p>
-                        <a class="col-lg-3 d-flex justify-content-end" href="/account/info?pageView=CustomerInfo">Chỉnh sửa</a>
-                    </div>                  
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td class="td-title">Họ và tên</td>
-                                    <td colspan="2">Nguyễn Thái Sơn</td>
-                                </tr>
-                                <tr>
-                                    <td class="td-title">Số điện thoại</td>
-                                    <td colspan="2">0818280559</td>
-                                </tr>
-                                <tr>
-                                    <td class="td-title">Email</td>
-                                    <td colspan="2">tysonzatop2810@gmail.com</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    <h2 class="main-title">Sổ địa chỉ</h2>
+                    <form action="" method="POST">
+                        <div class="form-group">
+                            <label for="name">Họ và Tên: </label> <p style="color: red; display: inline;">*</p>
+                            <input type="text" class="form-control" name="name" id="name">
+                        </div> 
+                        <div class="form-group">
+                            <label for="name">Tỉnh/Thành: </label> <p style="color: red; display: inline;">*</p>
+                            <input type="text" class="form-control" name="name" id="name">
+                        </div> 
+                        <div class="form-group">
+                            <label for="name">Quận/Huyện: </label> <p style="color: red; display: inline;">*</p>
+                            <input type="text" class="form-control" name="name" id="name">
+                        </div>  
+                        <div class="form-group">
+                            <label for="name">Phường/Xã: </label> <p style="color: red; display: inline;">*</p>
+                            <input type="text" class="form-control" name="name" id="name">
+                        </div> 
+                        <div class="form-group">
+                            <label for="name">Tên đường: </label> <p style="color: red; display: inline;">*</p>
+                            <p>Vui lòng nhập tên đường. Ưu tiên chọn tên đường từ gợi ý.</p>
+                            <input type="text" class="form-control" name="name" id="name">
+                        </div> 
+                        <div class="form-group">
+                            <label for="name">Số nhà: </label> <p style="color: red; display: inline;">*</p>
+                            <p>
+                                Vui lòng nhập thông tin theo cú pháp: số cụ thể, phần chữ hoặc Hẻm hoặc Ngõ hoặc Kiệt nhập ở ô Thông tin chi tiết. <br>
+                                VD1: Nhà số 6 Hẻm hoặc Ngõ hoặc Kiệt 12 => Nhập: 12 <br>
+                                VD2: Nhà số 6A hoặc 6bis hoặc H6 hoặc L6 => Nhập: 6 <br>
+                                *Nếu nhà không có số, vui lòng nhập: 1
+                            </p>
+                            <input type="text" class="form-control" name="name" id="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Số điện thoại: </label> <p style="color: red; display: inline;">*</p>
+                            <input type="text" class="form-control" name="name" id="name">
+                        </div>
+                        <div style="display: flex; align-items: center; padding: 5px;">
+                            <input type="checkbox" name="agree" id="agree" style="margin: 5px;">
+                            <label for="agree" style="display: inline; cursor: pointer;">Địa chỉ mặc định</label>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <input type="submit" value="Thêm" class="btn btn-primary register-button">
+                        </div>
+                    </form>
 
-                    <div class="history-table" style="padding: 15px;">
+
+                    <div class="history-table" style="padding: 15px; margin-bottom: 15px;">
                       <p id="main-title-custom">ĐƠN HÀNG GẦN ĐÂY NHẤT</p>
                       <table style="margin-top: 15px;">
                           <thead>

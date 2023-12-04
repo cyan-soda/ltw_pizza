@@ -19,7 +19,7 @@
 
 <body>
   <?php include '../ltw_pizza/app/views/components/header.php' ?> 
-  <?php include '../ltw_pizza/app/views/client/account/info.php' ?>
+  <?php include '../ltw_pizza/app/views/client/account/address.php' ?>
   <?php include '../ltw_pizza/app/views/components/footer.php' ?>
 </body>
 
