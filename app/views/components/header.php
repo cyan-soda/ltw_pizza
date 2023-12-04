@@ -15,8 +15,8 @@
 
                 <div>
                     <div>
-                        <a href="http://localhost/assignment/User/sign_in" class="btn btn-outline-success">Đăng nhập</a>
-                        <a href="http://localhost/assignment/User/sign_up" class="btn btn-outline-success">Đăng ký</a>
+                        <a href="http://localhost/ltw_pizza/account/sign-in" class="btn btn-outline-success">Đăng nhập</a>
+                        <a href="http://localhost/ltw_pizza/account/sign-up" class="btn btn-outline-success">Đăng ký</a>
                     </div>
                 </div>
             </div>

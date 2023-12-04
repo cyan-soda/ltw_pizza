@@ -1,4 +1,8 @@
 <?php
+    $showAlert = false;  
+    $showError = false;  
+    $exists = false;
+
     if(isset($_POST['submit']))
     {
         $name = $_POST['name'];
@@ -7,17 +11,73 @@
         $password = $_POST['password'];
         $confirm_password = $_POST['confirm-password'];
 
-        $key = "";
-        for($i = 0; $i < strlen($email); $i++)
-        {
-            if($email[$i] == '@') break;
-            else $key .= (string)(ord($email[$i]) - 48);
+        // add to database
+        $sql = "SELECT * from `users` where phone='$phone'"; 
+        
+        $result = mysqli_query($con, $sql); 
+    
+        $num = mysqli_num_rows($result); 
+
+        if($num == 0) { 
+            if(($password == $confirm_password) && $exists==false) { 
+                $hash = password_hash($password, PASSWORD_DEFAULT); 
+                $sql = "INSERT INTO `users` ( `name`, `phone`, `email`, `password`) 
+                        VALUES ('$name', '$phone', '$email', '$hash')"; 
+        
+                $result = mysqli_query($con, $sql); 
+        
+                if ($result) { 
+                    $showAlert = true;  
+                } 
+            }  
+            else {  
+                $showError = "Passwords do not match";  
+            }
         }
 
-        $id = (integer)$key % 100000000;
-
-        // add to database
+        if($num > 0) {
+            $exists = "Phone number already exists";
+        }
     }
+
+    if($showAlert)
+    {
+        echo ' <div class="alert alert-success  
+            alert-dismissible fade show" role="alert"> 
+            <strong>Success!</strong> Your account is  
+            now created and you can login.  
+            <button type="button" class="close"
+                data-dismiss="alert" aria-label="Close">  
+                <span aria-hidden="true">×</span>  
+            </button>  
+        </div> ';
+    }
+
+    if($showError) 
+    { 
+        echo ' <div class="alert alert-danger  
+            alert-dismissible fade show" role="alert">  
+        <strong>Error!</strong> '. $showError.'
+    
+       <button type="button" class="close" 
+            data-dismiss="alert aria-label="Close"> 
+            <span aria-hidden="true">×</span>  
+       </button>  
+     </div> ';  
+   } 
+
+   if($exists) 
+   { 
+        echo ' <div class="alert alert-danger  
+            alert-dismissible fade show" role="alert"> 
+
+        <strong>Error!</strong> '. $exists.'
+        <button type="button" class="close" 
+            data-dismiss="alert" aria-label="Close">  
+            <span aria-hidden="true">×</span>  
+        </button> 
+        </div> ';  
+    } 
 ?>
 
 

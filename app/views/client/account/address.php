@@ -1,4 +1,4 @@
-<div class="container" style="margin-top: 113px; width: 1200px;">
+<div class="container" style="margin-top: 113px;">
     <div class="row">
         <div class="col-lg-3">
             <div class="side-2 col-12">
