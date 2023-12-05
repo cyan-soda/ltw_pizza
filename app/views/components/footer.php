@@ -1,12 +1,6 @@
 <footer class="page-footer">
     <div class="page-footer__top">
         <div class="container">
-          <!-- <div class="page-footer__logo">
-            <div class="logo">
-              <a class="logo__link" href="http://localhost/assignment/Home/index"><img class="logo__img" src="../../../assignment/public/assets/img/logococoon.png" alt="logo"></a>
-            </div>
-          </div> -->
-
           <div class="page-footer__sections">
             <div class="contact-item-box">
               <div class="logo">

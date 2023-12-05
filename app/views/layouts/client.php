@@ -13,13 +13,16 @@
   <!-- <link rel="shortcut icon" href="../../../assignment/public/assets/img/favicon.png" type="image/x-icon"> -->
   <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../../public/css/header.css">
+  <link rel="stylesheet" href="../../../public/css/footer.css">
+  <link rel="stylesheet" href="../../../public/css/app.css">
+  <!-- <link rel="stylesheet" href="../../../public/css/uikit.min.css"> -->
   <!-- <link id="dm-light" rel="stylesheet" href="../../../assignment/public/assets/css/light.css" > -->
 </head>
 
 <body class="page-home dm-light">
 
       <!-- Loader-->
-      <div id="page-preloader"><span class="spinner border-t_second_b border-t_prim_a"></span></div>
+      <!-- <div id="page-preloader"><span class="spinner border-t_second_b border-t_prim_a"></span></div> -->
       <!-- Loader end-->
     <?php 
       require_once "./app/views/" . $data["page"] . ".php";
