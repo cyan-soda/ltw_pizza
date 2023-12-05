@@ -15,8 +15,10 @@
 
                 <div class="right-wrap">
                     <div>
-                        <a href="http://localhost/ltw_pizza/account/sign-in" class="btn btn-outline-success">Đăng nhập</a>
+                        <a href="http://localhost/account/sign-in" class="btn btn-outline-success">Đăng nhập</a>
                         <a href="http://localhost/ltw_pizza/account/sign-up" class="btn btn-outline-success">Đăng ký</a>
+                        <!-- <button type="button" class="btn btn-outline-success" onclick="window.location.href='http://localhost/account/sign-in'">Đăng nhập</button>
+                        <button type="button" class="btn btn-outline-success" onclick="sign_up()">Đăng ký</button> -->
                     </div>
                 </div>
             </div>
