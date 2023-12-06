@@ -15,10 +15,8 @@
 
                 <div class="right-wrap">
                     <div>
-                        <a href="http://localhost/account/sign_in" class="btn btn-outline-success">Đăng nhập</a>
-                        <a href="http://localhost/account/sign_up" class="btn btn-outline-success">Đăng ký</a>
-                        <!-- <button type="button" class="btn btn-outline-success" onclick="window.location.href='http://localhost/account/sign-in'">Đăng nhập</button>
-                        <button type="button" class="btn btn-outline-success" onclick="sign_up()">Đăng ký</button> -->
+                        <a href="http://localhost/Home/sign_in" class="btn btn-outline-success">Đăng nhập</a>
+                        <a href="http://localhost/Home/sign_up" class="btn btn-outline-success">Đăng ký</a>
                     </div>
                 </div>
             </div>
