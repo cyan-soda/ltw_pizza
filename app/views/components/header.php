@@ -4,37 +4,22 @@
             <div class="container container-horizontal">
                 <img src="http://thepizzacompany.vn/images/thumbs/000/0003645_VN_ngang_n.png" alt="logo" class="page-header__img">
 
-                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <!-- <div class="btn-group" role="group" aria-label="Basic outlined example">
                     <button type="button" class="btn btn-outline-primary">Left</button>
                     <button type="button" class="btn btn-outline-primary">Right</button>
                 </div>
 
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                </form>
+                </form> -->
 
                 <div class="right-wrap">
-                    <?php
-
-                        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
-                        {
-                            echo '<div class="dropdown">
-                                    <a href="http://localhost/Home/info" class="dropdown-toggle"> '. $_SESSION['name'] .' </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="http://localhost/Home/info">Tài khoản</a></li>
-                                        <li><a class="dropdown-item" href="http://localhost/Home/sign_out">Đăng xuất</a></li>
-                                    </ul>
-                                </div>';
-                        }
-                        else
-                        {
-                            echo '<div>
-                                    <a href="http://localhost/Home/sign_in" class="btn btn-outline-success">Đăng nhập</a>
-                                    <a href="http://localhost/Home/sign_up" class="btn btn-outline-success">Tạo tài khoản</a>
-                                </div>';
-                        }
-
-                    ?>
+                    <div>
+                        <a href="../app/views/client/account/sign-in.php" class="btn btn-success">Đăng nhập</a>
+                        <a href="http://localhost/account/sign_up" class="btn btn-success">Đăng ký</a>
+                        <!-- <button type="button" class="btn btn-outline-success" onclick="window.location.href='http://localhost/account/sign-in'">Đăng nhập</button>
+                        <button type="button" class="btn btn-outline-success" onclick="sign_up()">Đăng ký</button> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -160,13 +145,3 @@
     </div>
 </div>
 </header> -->
-
-<script>
-    document.querySelector('.dropdown').addEventListener('mouseover', function() {
-        document.querySelector('.dropdown-menu').style.display = 'block';
-    });
-
-    document.querySelector('.dropdown').addEventListener('mouseout', function() {
-        document.querySelector('.dropdown-menu').style.display = 'none';
-    });
-</script>
