@@ -1,0 +1,128 @@
+/* .dish-row {
+    max-width: 50%;
+} */
+.menu-container {
+    margin-left: 7%;
+    margin-right: 5%;
+}
+
+
+.dish-cover-container {
+    /* height: 100%; */
+    height: 300px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin-top: 0;
+    padding: 8%;
+}
+
+.dish-cover {
+    /* max-width: 100%; */
+    min-width: 80%;
+    max-width: 200px;
+    max-height: 100%;
+    /* max-width: 200px;
+    object-fit: cover; */
+    /* margin-top: 0; */
+    padding-left: 2%;
+    display: block;
+    margin: 0 auto;
+}
+
+.dish-cover:hover {
+    transform: rotate(10deg) !important;
+    transition: 0.4s;
+}
+
+.dish-name {
+    color: black;
+    font-weight: bolder;
+    font-size: 110%;
+    /* height: 10%; */
+    min-height: 45px;
+    max-height: fit-content;
+    padding-left: 5%;
+    padding-right: 2%;
+}
+
+.dish-link {
+    color: black;
+    text-decoration: none;
+    padding-left: 0px !important;
+    margin-left: 0;
+}
+
+.dish-link:hover {
+    color: rgb(44,104,55);
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+.dish-description {
+    font-size: 80%;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 15%;
+    height: 5%;
+    /* max-height: fit-content; */
+    min-height: 30px;
+    padding-left: 5%;
+    padding-right: 2%;
+}
+
+.price-row {
+    padding-left: 2%;
+    display: flex;
+    flex-direction: row;
+}
+
+.inside-column {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    /* height: 60%; */
+}
+
+.price-detail {
+    display: flex;
+    flex-direction: column;
+    padding-left: 3% !important;
+}
+
+.price-from {
+    color: #666;
+    margin-bottom: 0px;
+    padding-left: 0 !important;
+}
+
+.price {
+    color: black;
+    font-weight: bolder;
+    font-size: 120%;
+}
+
+.buy-button-container {
+    padding-left: 20px;
+    /* margin-right: 20px; */
+    margin-top: 1%;
+    padding-top: 3%;
+}
+
+.buy-button {
+    background-color: white;
+    color: rgb(44,104,55);
+    border: 1px solid rgb(44,104,55);
+    border-radius: 7px;
+    padding: 5px;
+    width: 110px;
+    font-weight: 400;
+}
+
+.buy-button:hover {
+    background-color: rgb(196,45,37);
+    color: white;
+    border: none;
+    font-weight: 600;
+    transition: 0.7s;
+}
+

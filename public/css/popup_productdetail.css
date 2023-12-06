@@ -5,25 +5,26 @@
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.7);
-    /* transition: opacity 500ms; */
-    /* visibility: hidden;
+    transition: opacity 500ms;
+    visibility: hidden;
     opacity: 0;
-} */ 
-/* .overlay:target {
+} 
+.overlay:target {
     visibility: visible;
     opacity: 1;
-  } */
+  }  */
 .popup_productdetail{
-    margin: 70px auto;
     background: #fff;
     border-radius: 10px;
-    width: 70%;
+    max-width: 1200px;
+    
     position: relative;
     transition: all 5s ease-in-out;
     border: 2px solid #000;
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
     overflow: hidden;
+    margin: auto;
 }
 
 .popupproductleft{
@@ -84,4 +85,13 @@ textarea{
 .popupright_product{
     display: flex;
     flex-direction: column;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #555;
 }

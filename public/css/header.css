@@ -51,7 +51,11 @@ header {
     padding: 5px;
     align-items: center;
     display: flex;
+<<<<<<< HEAD
     margin: 5px 0px 5px;
+=======
+    /* margin: 20px 0 30px; */
+>>>>>>> f1b4793f220df3922953710639e1b4288167e75d
 }
 
 

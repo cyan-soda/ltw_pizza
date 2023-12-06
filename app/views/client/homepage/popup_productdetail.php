@@ -1,6 +1,9 @@
+
 <div class="overplay">
-    <div class="popup_productdetail">
-        <div class="popupproductleft col-6">
+
+    <div class="row popup_productdetail container mx-auto col-12 col-lg-8">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <div class="popupproductleft col-md-6 col-12">
             <div class="popup_productimage">
                 <img src="https://thepizzacompany.vn/images/thumbs/000/0003791_caramelized-french-onion-cheese-tart_500.jpeg" class="productimage"  alt="Ảnh của product"></img>
             </div>
@@ -8,7 +11,7 @@
                 79000đ
             </div>
         </div>
-        <div class="popupright_product col-6">
+        <div class="popupright_product col-md-6 col-12">
             <div class="popup_infor">
                 <div class="popup_productname">
                     <h3 class="popup_name">
@@ -43,7 +46,7 @@
         </div>
     </div>
 </div>
-<script>
+<script>    
     function increaseValue() {
         var value = parseInt(document.getElementById('quantityhihi').value, 10);
         value = isNaN(value) ? 0 : value;
@@ -74,5 +77,8 @@
         // Cập nhật nội dung của cột giá tổng
         document.getElementById('popup_productprice').textContent = totalPrice + 'đ';
         console.log('Giá đã được cập nhật thành công:', totalPrice);
+    }
+    function closePopup() {
+        document.getElementById('popupOverlay').style.display = 'none';
     }
 </script>
