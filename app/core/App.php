@@ -20,6 +20,26 @@ class App
             unset($url[0]);
         }
 
+        // if(isset($url[0]))
+        // {
+        //     $controllerName = $url[0];
+        //     if(file_exists("./app/controllers/{$controllerName}.php"))
+        //     {
+        //         require_once "./app/controllers/{$controllerName}.php";
+        //         $this->controller = new $controllerName;
+        //     }
+        //     unset($url[0]);
+        // }
+        // File: App.php
+        // if (isset($url[0])) {
+        //     $controllerName = 'App\\Controllers\\' . $url[0]; // Update namespace
+        //     if (class_exists($controllerName)) {
+        //         $this->controller = new $controllerName;
+        //     }
+        //     unset($url[0]);
+        // }
+
+
         require_once "./app/controllers/". $this->controller. ".php";
         $this->controller = new $this->controller;
 
@@ -49,6 +69,7 @@ class App
         {
             return $url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
         }
+        // return [];
     }
 }
 
