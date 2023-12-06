@@ -1,0 +1,58 @@
+/* header */
+
+.navbar {
+	padding: 0.5rem 1rem;
+	border: 0.5px solid #ccc;
+	background-color: #eee;
+}
+
+.navbar a {
+	color: red;
+	font-size: 22px;
+	font-weight: 700;
+}
+.navbar .nav-item:not(:last-child) {
+	margin-right: 1rem;
+}
+
+.navbar .nav-link {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar .nav-link:hover {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.navbar .form-control {
+	margin-right: 0.5rem;
+}
+
+.navbar .btn-outline-success {
+	color: #fff;
+	border-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar .btn-outline-success:hover {
+	color: #fff;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Adjustments for icons */
+.navbar .fas {
+	color: #fff;
+}
+
+/* Mobile adjustments */
+@media (max-width: 576px) {
+	.navbar .nav-item {
+		margin-bottom: 0.5rem;
+	}
+
+	.navbar .nav-item .nav-link {
+		text-align: center;
+	}
+
+	.navbar .d-flex {
+		flex-grow: 1;
+	}
+}
