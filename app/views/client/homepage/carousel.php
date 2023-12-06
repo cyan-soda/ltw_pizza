@@ -2,15 +2,15 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="http://thepizzacompany.vn/images/thumbs/000/0003845_TruaChat_WebBanner_(W1200xH480)px.jpeg"
-        class="d-block w-100" alt="Slide 1">
+         alt="Slide 1">
     </div>
     <div class="carousel-item">
       <img src="http://thepizzacompany.vn/images/thumbs/000/0003841_Unboxtangly_WebBanner_(W1200xH480)px.jpeg"
-        class="d-block w-100" alt="Slide 2">
+         alt="Slide 2">
     </div>
     <div class="carousel-item">
       <img src="http://thepizzacompany.vn/images/thumbs/000/0003916_WebsiteBanner_TPC_KVFestivel_1200x480px.jpeg"
-        class="d-block w-100" alt="Slide 3">
+        alt="Slide 3">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
