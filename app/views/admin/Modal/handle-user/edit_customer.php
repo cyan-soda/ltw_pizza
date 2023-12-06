@@ -1,11 +1,10 @@
 <?php
 require_once('db_connnection.php');
-
-$id = $_POST['id'];
-$name = $_POST['name'];
-$phone = $_POST['phone'];
-$email = $_POST['email'];
-$password = $_POST['password'];
+$id = $_POST['Customer_ID'];
+$name = $_POST['Name'];
+$phone = $_POST['Phone'];
+$email = $_POST['Email'];
+$password = $_POST['Password'];
 
 $conn = OpenCon();
 
@@ -13,12 +12,12 @@ $conn = OpenCon();
 $query = "
     UPDATE `users` 
     SET 
-        name = '" . $name . "',
-        email = '" . $email . "',
-        password = '" . $password . "',
-        phone = '" . $phone . "',
+        Name = '" . $name . "',
+        Email = '" . $email . "',
+        Password = '" . $password . "',
+        Phone = '" . $phone . "'
     WHERE 
-        id = '" . $id . "';
+        id = '" . $id . "'
 ";
 
 if ($conn->query($query) === TRUE) {
