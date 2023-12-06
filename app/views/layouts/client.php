@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="../../../public/css/footer.css">
   <link rel="stylesheet" href="../../../public/css/app.css">
   <link rel="stylesheet" href="../../../public/css/account.css">
+  <link rel="stylesheet" href="../../../public/css/carousel.css">
   <!-- <link rel="stylesheet" href="../../../public/css/uikit.min.css"> -->
   <!-- <link id="dm-light" rel="stylesheet" href="../../../assignment/public/assets/css/light.css" > -->
 </head>
