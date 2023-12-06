@@ -10,61 +10,58 @@
     <link rel="stylesheet" href="admin.css">
     <link rel="stylesheet" href="Public/header.css">
     <link rel="stylesheet" href="Public/sidebar.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row">
-            <?php include_once 'Components/header.php'; ?>
-            <?php include_once 'Components/sidebar.php'; ?>
+            <!-- header -->
+            <?php include_once 'Components/header.php' ;?>
 
+            <!-- side bar -->
+            <?php include_once 'Components/sidebar.php' ?>
+
+            <!-- content -->
             <div class="content col-md-10 p-0">
-                <div class="container">
-                    <h1 class="mt-3">Read Customers</h1>
+                <div class="container user-info">
+                    <!-- User Info template  -->
+                    <h1 class="mt-3">Products List</h1>
                     <hr>
-                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add">Create New
-                        Customer</button>
-                    <button type='button' class='btn-edit btn btn-primary m-1' data-bs-id='<?php echo $row['id']; ?>'
-                        data-bs-name='<?php echo $row['name']; ?>' data-bs-phone='<?php echo $row['phone']; ?>'
-                        data-bs-email='<?php echo $row['email']; ?>' data-bs-toggle='modal'
-                        data-bs-target='#editCustomerModal'>Sửa</button>
-
-                    <button type='button' class='btn-delete btn btn-danger m-1' data-bs-id='<?php echo $row['id']; ?>'
-                        data-bs-toggle='modal' data-bs-target='#deleteCustomerModal'>Xóa</button>
-                    <!-- Modal Add Customer -->
-                    <!-- ... Add Customer Modal Content ... -->
-                    <div class="modal fade" id="addCustomerModal" tabindex="-1" aria-labelledby="addCustomerModalLabel"
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProductModal">Create New
+                        Product</button>
+                    <!-- Modal Add Product -->
+                    <!-- ... Add Product Modal Content ... -->
+                    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="addCustomerModalLabel">Add New Customer</h5>
+                                    <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
-                                <form action="add_customer.php" method="post">
+                                <form action="Modal/handle-user/add_product.php" method="post">
                                     <div class="modal-body">
                                         <div class="mb-3">
-                                            <label for="customerName" class="form-label">Name</label>
-                                            <input type="text" class="form-control" id="customerName" name="name"
+                                            <label for="ProductName" class="form-label">Name</label>
+                                            <input type="text" class="form-control" id="ProductName" name="name"
                                                 required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="customerPhone" class="form-label">Phone</label>
-                                            <input type="text" class="form-control" id="customerPhone" name="phone"
+                                            <label for="ProductPhone" class="form-label">Phone</label>
+                                            <input type="text" class="form-control" id="ProductPhone" name="phone"
                                                 required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="customerEmail" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="customerEmail" name="email"
+                                            <label for="ProductEmail" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="ProductEmail" name="email"
                                                 required>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Add Customer</button>
+                                        <button type="submit" class="btn btn-primary">Add Product</button>
                                     </div>
                                 </form>
                             </div>
@@ -82,7 +79,7 @@
                         </thead>
                         <tbody>
                             <?php
-                            require_once('./Modal/handel-item/db_connection.php');
+                            require_once('Modal/handle-user/db_connection.php');
                             $conn = OpenCon();
                             $query = "SELECT * FROM `users`;";
                             $result = $conn->query($query);
@@ -97,7 +94,10 @@
                                             <div class='d-inline-flex'>
                                                 <button class='btn btn-secondary m-1'>Read</button>
                                                 <button type='button' class='btn-edit btn btn-primary m-1'
-                                                    data-bs-toggle='modal'>Edit</button>
+                                                    data-bs-id='" . $row['id'] . "'
+                                                    data-bs-name='" . $row['name'] . "'
+                                                    data-bs-phone='" . $row['phone'] . "'
+                                                    data-bs-email='" . $row['email'] . "'>Edit</button>
                                                 <button type='button' class='btn-delete btn btn-danger m-1'
                                                     data-bs-toggle='modal'>Delete</button>
                                             </div>
@@ -105,70 +105,70 @@
                                       </tr>";
                                 }
                             } else {
-                                echo "<tr><td colspan='5'>No customers found</td></tr>";
+                                echo "<tr><td colspan='5'>No Products found</td></tr>";
                             }
                             ?>
                         </tbody>
                     </table>
-                    <!-- Edit Customer Modal -->
-                    <!-- ... Edit Customer Modal Content ... -->
-                    <div class="modal fade" id="editCustomerModal" tabindex="-1"
-                        aria-labelledby="editCustomerModalLabel" aria-hidden="true">
+                    <!-- Edit Product Modal -->
+                    <!-- ... Edit Product Modal Content ... -->
+                    <div class="modal fade" id="editProductModal" tabindex="-1"
+                        aria-labelledby="editProductModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="editCustomerModalLabel">Edit Customer Information</h5>
+                                    <h5 class="modal-title" id="editProductModalLabel">Edit Product Information</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
-                                <form action="edit_customer.php" method="post">
+                                <form action="edit_product.php" method="post">
                                     <div class="modal-body">
-                                        <input type="hidden" id="editCustomerId" name="id">
+                                        <input type="hidden" id="editProductId" name="id">
                                         <div class="mb-3">
-                                            <label for="editCustomerName" class="form-label">Name</label>
-                                            <input type="text" class="form-control" id="editCustomerName" name="name"
+                                            <label for="editProductName" class="form-label">Name</label>
+                                            <input type="text" class="form-control" id="editProductName" name="name"
                                                 required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="editCustomerPhone" class="form-label">Phone</label>
-                                            <input type="text" class="form-control" id="editCustomerPhone" name="phone"
+                                            <label for="editProductPhone" class="form-label">Phone</label>
+                                            <input type="text" class="form-control" id="editProductPhone" name="phone"
                                                 required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="editCustomerEmail" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="editCustomerEmail" name="email"
+                                            <label for="editProductEmail" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="editProductEmail" name="email"
                                                 required>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Update Customer</button>
+                                        <button type="submit" class="btn btn-primary">Update Product</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <!-- Delete Customer Modal -->
-                    <!-- ... Delete Customer Modal Content ... -->
-                    <div class="modal fade" id="deleteCustomerModal" tabindex="-1"
-                        aria-labelledby="deleteCustomerModalLabel" aria-hidden="true">
+                    <!-- Delete Product Modal -->
+                    <!-- ... Delete Product Modal Content ... -->
+                    <div class="modal fade" id="deleteProductModal" tabindex="-1"
+                        aria-labelledby="deleteProductModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="deleteCustomerModalLabel">Delete Customer</h5>
+                                    <h5 class="modal-title" id="deleteProductModalLabel">Delete Product</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
-                                <form action="delete_customer.php" method="post">
+                                <form action="delete_product.php" method="post">
                                     <div class="modal-body">
-                                        <p>Are you sure you want to delete this customer?</p>
-                                        <input type="hidden" id="deleteCustomerId" name="id">
+                                        <p>Are you sure you want to delete this Product?</p>
+                                        <input type="hidden" id="deleteProductId" name="id">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-danger">Delete Customer</button>
+                                        <button type="submit" class="btn btn-danger">Delete Product</button>
                                     </div>
                                 </form>
                             </div>
@@ -190,12 +190,12 @@
             var userPhone = $(this).data('bs-phone');
             var userEmail = $(this).data('bs-email');
 
-            $('#editCustomerModal #editCustomerId').val(userId);
-            $('#editCustomerModal #editCustomerName').val(userName);
-            $('#editCustomerModal #editCustomerPhone').val(userPhone);
-            $('#editCustomerModal #editCustomerEmail').val(userEmail);
+            $('#editProductModal #editProductId').val(userId);
+            $('#editProductModal #editProductName').val(userName);
+            $('#editProductModal #editProductPhone').val(userPhone);
+            $('#editProductModal #editProductEmail').val(userEmail);
 
-            $('#editCustomerModal').modal('show');
+            $('#editProductModal').modal('show');
         });
 
         $('.btn-delete').on('click', function() {
@@ -203,10 +203,10 @@
             var userId = $(this).data('bs-id');
 
             // Set the value of the input in the modal
-            $('#deleteCustomerModal #deleteCustomerId').val(userId);
+            $('#deleteProductModal #deleteProductId').val(userId);
 
             // Show the modal
-            $('#deleteCustomerModal').modal('show');
+            $('#deleteProductModal').modal('show');
         });
     });
     </script>
