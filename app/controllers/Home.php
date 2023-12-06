@@ -2,9 +2,23 @@
 
     class Home extends Controller
     {
-        function index()
+        public function index()
         {
-            $layout = $this->view("layouts/client", ["page"=>"client/homepage/index", "header"=>"components/header", "footer"=>"components/footer"]);
+            $layout = $this->view("layouts/client", ["page"=>"client/Home/index", "header"=>"components/header", "footer"=>"components/footer"]);
+        }
+
+        public function sign_in()
+        {
+            $model = $this->model("UserModel");
+            $layout = $this->view("layouts/client", ["page" => "client/Home/sign_in", "header"=>"components/header", "footer"=>"components/footer", "model" => $model]);
+            echo $layout;
+        }
+
+        public function sign_up()
+        {
+            $model = $this->model("UserModel");
+            $layout = $this->view("layouts/client", ["page" => "client/Home/sign_up", "header"=>"components/header", "footer"=>"components/footer", "model" => $model]);
+            echo $layout;
         }
 
         function catalog(){
