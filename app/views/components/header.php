@@ -14,10 +14,27 @@
                 </form>
 
                 <div class="right-wrap">
-                    <div>
-                        <a href="http://localhost/Home/sign_in" class="btn btn-outline-success">Đăng nhập</a>
-                        <a href="http://localhost/Home/sign_up" class="btn btn-outline-success">Đăng ký</a>
-                    </div>
+                    <?php
+
+                        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+                        {
+                            echo '<div class="dropdown">
+                                    <a href="http://localhost/Home/info" class="dropdown-toggle"> '. $_SESSION['name'] .' </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="http://localhost/Home/info">Tài khoản</a></li>
+                                        <li><a class="dropdown-item" href="http://localhost/Home/sign_out">Đăng xuất</a></li>
+                                    </ul>
+                                </div>';
+                        }
+                        else
+                        {
+                            echo '<div>
+                                    <a href="http://localhost/Home/sign_in" class="btn btn-outline-success">Đăng nhập</a>
+                                    <a href="http://localhost/Home/sign_up" class="btn btn-outline-success">Tạo tài khoản</a>
+                                </div>';
+                        }
+
+                    ?>
                 </div>
             </div>
         </div>
@@ -143,3 +160,13 @@
     </div>
 </div>
 </header> -->
+
+<script>
+    document.querySelector('.dropdown').addEventListener('mouseover', function() {
+        document.querySelector('.dropdown-menu').style.display = 'block';
+    });
+
+    document.querySelector('.dropdown').addEventListener('mouseout', function() {
+        document.querySelector('.dropdown-menu').style.display = 'none';
+    });
+</script>

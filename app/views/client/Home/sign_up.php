@@ -21,7 +21,7 @@
         if($num == 0) { 
             if(($password == $confirm_password) && $exists==false) { 
                 $hash = password_hash($password, PASSWORD_DEFAULT); 
-                $sql = "INSERT INTO `users` ( `name`, `phone`, `email`, `password`) 
+                $sql = "INSERT INTO `Customer` ( `Name`, `Phone`, `Email`, `Password`) 
                         VALUES ('$name', '$phone', '$email', '$hash')"; 
         
                 $result = mysqli_query($con, $sql); 
