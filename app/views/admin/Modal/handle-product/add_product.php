@@ -8,13 +8,9 @@ $password = $_POST['password'];
 
 
 $conn = OpenCon();
-$query = "INSERT INTO `users` (name, phone, email,pasword) 
-          VALUES ('
-                    " . $name . "',
-                    '" . $phone . "', 
-                    '" . $email . "',
-                    '" . $password . "'
-                )";
+$query = "INSERT INTO `users` (name, phone, email, password) 
+          VALUES ('" . $name . "', '" . $phone . "', '" . $email . "', '" . $password . "')";
+
 
 if ($conn->query($query) === TRUE) {
     echo "New record created successfully";

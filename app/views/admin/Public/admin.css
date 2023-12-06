@@ -1,0 +1,55 @@
+/* CSS Reset */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	line-height: 1;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+.content{
+	background-color: rgba(204, 204, 204, 0.4);
+}
+
+
+.content .grid-container {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); /* Chia thành 3 cột bằng nhau */
+	grid-template-rows: auto auto; /* Hai hàng, chiều cao tự động */
+	gap: 1rem;
+	padding: 2rem;
+    margin: 6rem 0 0 10rem;
+}
+
+.content .manage-btn {
+    width: 160px;
+    height: 160px;
+	background-color: #f8f9fa;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+	border-radius: 1.6rem; 
+	transition: all 0.3s ease-in-out;
+    margin-bottom: 60px;
+}
+
+.manage-btn:hover {
+	transform: translateY(-5px); 
+}
+
+.manage-btn i {
+    font-size: 28px;
+}
+
+
+
