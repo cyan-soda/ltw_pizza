@@ -1,4 +1,4 @@
-<header>
+<header class="page-header">
     <div class="page-header__container">
         <div class="page-header__top">
             <div class="container container-horizontal">
@@ -15,8 +15,8 @@
 
                 <div class="right-wrap">
                     <div>
-                        <a href="http://localhost/account/sign-in" class="btn btn-outline-success">Đăng nhập</a>
-                        <a href="http://localhost/ltw_pizza/account/sign-up" class="btn btn-outline-success">Đăng ký</a>
+                        <a href="http://localhost/account/sign_in" class="btn btn-outline-success">Đăng nhập</a>
+                        <a href="http://localhost/account/sign_up" class="btn btn-outline-success">Đăng ký</a>
                         <!-- <button type="button" class="btn btn-outline-success" onclick="window.location.href='http://localhost/account/sign-in'">Đăng nhập</button>
                         <button type="button" class="btn btn-outline-success" onclick="sign_up()">Đăng ký</button> -->
                     </div>
