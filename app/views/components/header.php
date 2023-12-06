@@ -2,7 +2,7 @@
     <div class="page-header__container">
         <div class="page-header__top">
             <div class="container container-horizontal">
-                <img src="public/img/logo-real.png" alt="logo" class="page-header__img">
+                <img src="http://thepizzacompany.vn/images/thumbs/000/0003645_VN_ngang_n.png" alt="logo" class="page-header__img">
 
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
                     <button type="button" class="btn btn-outline-primary">Left</button>
