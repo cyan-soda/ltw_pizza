@@ -3,8 +3,6 @@
     margin: 50px auto;
 }
 .rowproduct{
-    display: flex;
-    flex-direction: row;
     border-bottom: 1px solid gainsboro;
     border-top: 1px solid gainsboro;
     padding-top: 15px;
@@ -44,7 +42,7 @@
     font-weight: 400;
     font-size: 20px;
     color: black;
-
+    margin: auto;
 }
 .amountbutton{
     background-color: white;
@@ -73,10 +71,7 @@
     margin-bottom: 20px;
 }
 
-.popup_button1{
-    margin-left: 20px;
-}
 .orderbut{
-    width: 200px;
+    padding: auto;
     margin-left: 20px;
 }
