@@ -6,6 +6,7 @@
 
     <main class="page-main">
         <?php include "./app/views/client/Home/carousel.php";?>
+        <?php include "./app/views/components/menu_grid.php";?>
 
     </main>
 

@@ -75,15 +75,6 @@ CREATE TABLE `Order` (
     FOREIGN KEY (Branch_ID) REFERENCES Branch(Branch_ID)
 );
 
-CREATE TABLE Order_Line (
-    Order_ID INT,
-    Product_ID INT,
-    Quantity INT NOT NULL,
-    Total_Price INT NOT NULL,
-    PRIMARY KEY (Order_ID, Product_ID),
-    FOREIGN KEY (Order_ID) REFERENCES `Order`(Order_ID),
-    FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID)
-);
 
 CREATE TABLE Bill (
     Bill_ID INT AUTO_INCREMENT PRIMARY KEY,

@@ -100,7 +100,7 @@ header {
     margin: 0 auto; /* Center the container horizontally */
 }
 
-.navbar-nav .nav-item {
+.navbar-nav .nav-item, .nav-input-button {
     margin-right: 10px; /* Adjust margin as needed */
     color: #ffffff;
     display: flex;
@@ -110,10 +110,23 @@ header {
     margin-bottom: 10px;
 }
 
+.nav-input-button {
+    background-color: #028f46;
+    color: white;
+    border-radius: 10px;
+    border: none !important;
+
+}
+
+.nav-input-button:hover {
+    background-color: #024824;
+}
+
 .navbar-nav .nav-item:hover {
     background-color: #024824;
     color: #ffffff;
     border-radius: 18px;
+    max-height: fit-content;
     /* margin-top: 5px;
     margin-bottom: 5px; */
 }

@@ -3,7 +3,27 @@
     if (!$conn) {
         die('Connect Error (' . mysqli_connect_errno() . ') '. mysqli_connect_error());
     }
-    $q = "SELECT * FROM `Product`";
+    $type='Salad';
+
+    if (isset($_POST["submit"])) {
+        if($_POST["submit"]=='Pizza') {
+            $type='Pizza';
+        }
+        else if ($_POST["submit"]=='Khai vị'){
+            $type='Fried Chicken';
+        }
+        else if ($_POST["submit"]=='Mỳ Ý'){
+            $type='Spagetti';
+        }
+        else if ($_POST["submit"]=='Salad'){
+            $type='Salad';
+        }
+        else {
+            $type='Beverage';
+        }
+        
+    }
+    $q = "SELECT * FROM `Product` WHERE Type='$type'";
     $ret = mysqli_query($conn,$q);
 
     
@@ -19,7 +39,7 @@
             <div class="row menu-grid">
                 <script>
                     try {
-                        const list = <?= $information ?>;
+                        const list = <?php echo $information; ?>;
                         const menuGrid = document.querySelector(".menu-grid");
                         let count = 0;
                         let menuHTML = "";
