@@ -1,3 +1,33 @@
+<?php
+    
+    if(isset($_POST['submit']))
+    {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $phone = $_SESSION['phone'];
+
+        $data["model"] = new Database();
+        $link = $data["model"]->con;  // Đặt lại biến $link từ $data["model"]->con
+
+        if (!$link) {
+            die('Connection failed: ' . mysqli_connect_error());
+        }
+
+        if (strlen($name) > 0 && strlen($name) < 255 && strlen($email) > 0 && strlen($email) < 255) {
+            $q = "UPDATE `Customer` SET `Name` = '$name', `Email` = '$email' WHERE `Customer`.`Phone` = '$phone'";
+            if ($link->query($q) == true) {
+                echo "<script> window.alert('Cap nhat thanh cong!'); </script>";
+            } else {
+                echo "<script> window.alert('Cap nhat that bai!'); </script>";
+            }
+        }
+
+        // Đóng kết nối sau khi sử dụng
+        mysqli_close($link);
+    }
+?>
+
+
 <div class="page-wrapper">
     <?php 
       require_once "./app/views/" . $data["header"] . ".php";
@@ -21,7 +51,6 @@
                         <div class="head-box userinfo">
                             <p>Tài khoản của</p>
                             <?php echo '<p class="username">' . $_SESSION['name'] . '</p>'; ?>
-                            <!-- <p class="username">Nguyễn Thái Sơn</p> -->
                         </div>
                         <div class="head-body user-sidelink">
                             <ul>
@@ -68,51 +97,30 @@
                         }
                     </style>
                     <div class="col-lg-12">
-                        <h2 class="main-title">Thông tin chung</h2>
-                        <div class="address-table">
-                            <div class="row">
-                                <p class="col-lg-9" id="main-title-custom">Thông tin tài khoản</p>
-                                <a class="col-lg-3 d-flex justify-content-end" href="http://localhost/Home/editInfo">Chỉnh sửa</a>
-                            </div>                  
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="td-title">Họ và tên</td>
-                                        <td colspan="2"><?php echo '<p class="username">' . $_SESSION['name'] . '</p>'; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td-title">Số điện thoại</td>
-                                        <td colspan="2"><?php echo '<p class="username">' . $_SESSION['phone'] . '</p>'; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td-title">Email</td>
-                                        <td colspan="2"><?php echo '<p class="username">' . $_SESSION['email'] . '</p>'; ?></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="history-table" style="padding: 15px;">
-                        <p id="main-title-custom">ĐƠN HÀNG GẦN ĐÂY NHẤT</p>
-                        <table style="margin-top: 15px;">
-                            <thead>
-                                <tr>
-                                    <th class="code">Mã</th>
-                                    <th class="code">Sản phẩm</th>
-                                    <th class="code">Ngày mua</th>
-                                    <th class="code">Tổng tiền</th>
-                                    <th class="code">Trạng thái</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
-                    
+                        <h2 class="main-title">Thông tin khách hàng</h2>
+                        <form action="" method="POST">
+                            <div class="form-group">
+                                <label for="name">Họ và Tên: </label> <p style="color: red; display: inline;">*</p>
+                                <input type="text" class="form-control" name="name" id="name" value="<?php echo '' . $_SESSION['name'] . '' ?>">
+                            </div>  
+                            <div class="form-group">
+                                <label for="phone">Số điện thoại: </label> <p style="color: red; display: inline;">*</p>
+                                <input type="text" class="form-control" name="phone" id="phone" value="<?php echo '' . $_SESSION['phone'] . '' ?>" readonly>
+                            </div>                       
+                            <div class="form-group">
+                                <label for="email">Email: </label> 
+                                <input type="text" class="form-control" name="email" id="email" value="<?php echo '' . $_SESSION['email'] . '' ?>">
+                            </div>
+                            <div class="d-grid gap-2">
+                                <input type="submit" value="Cập nhật" class="btn btn-primary register-button">
+                            </div>
+                            <input type="hidden" name="phone" value="<?php echo htmlspecialchars($_SESSION['phone']); ?>">
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
     
     <?php 
       require_once "./app/views/" . $data["footer"] . ".php";

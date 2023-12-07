@@ -68,45 +68,25 @@
                         }
                     </style>
                     <div class="col-lg-12">
-                        <h2 class="main-title">Thông tin chung</h2>
-                        <div class="address-table">
-                            <div class="row">
-                                <p class="col-lg-9" id="main-title-custom">Thông tin tài khoản</p>
-                                <a class="col-lg-3 d-flex justify-content-end" href="http://localhost/Home/editInfo">Chỉnh sửa</a>
-                            </div>                  
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td class="td-title">Họ và tên</td>
-                                        <td colspan="2"><?php echo '<p class="username">' . $_SESSION['name'] . '</p>'; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td-title">Số điện thoại</td>
-                                        <td colspan="2"><?php echo '<p class="username">' . $_SESSION['phone'] . '</p>'; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="td-title">Email</td>
-                                        <td colspan="2"><?php echo '<p class="username">' . $_SESSION['email'] . '</p>'; ?></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="history-table" style="padding: 15px;">
-                        <p id="main-title-custom">ĐƠN HÀNG GẦN ĐÂY NHẤT</p>
-                        <table style="margin-top: 15px;">
-                            <thead>
-                                <tr>
-                                    <th class="code">Mã</th>
-                                    <th class="code">Sản phẩm</th>
-                                    <th class="code">Ngày mua</th>
-                                    <th class="code">Tổng tiền</th>
-                                    <th class="code">Trạng thái</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
+                        <h2 class="main-title">Đổi mật khẩu</h2>
+                        
+                        <form action="" method="POST">
+                            <div class="form-group">
+                                <label for="oldpw">Mật khẩu cũ: </label> <p style="color: red; display: inline;">*</p>
+                                <input type="text" class="form-control" name="oldpw" id="oldpw">
+                            </div>  
+                            <div class="form-group">
+                                <label for="newpw">Mật khẩu mới: </label> <p style="color: red; display: inline;">*</p>
+                                <input type="text" class="form-control" name="newpw" id="newpw">
+                            </div>                       
+                            <div class="form-group">
+                                <label for="cfnewpw">Xác nhận mật khẩu mới: </label> <p style="color: red; display: inline;">*</p>
+                                <input type="text" class="form-control" name="cfnewpw" id="cfnewpw">
+                            </div>
+                            <div class="d-grid gap-2">
+                                <input type="submit" value="Cập nhật" class="btn btn-primary register-button">
+                            </div>
+                        </form>
                     
                     </div>
                 </div>
