@@ -20,18 +20,21 @@
 </head>
 
 <body>
-<<<<<<< HEAD
+
   <!-- <?php include '../ltw_pizza/app/views/components/header.php' ?>  -->
   <!-- <div>
   <?php include '../ltw_pizza/app/views/components/menu_grid.php' ?>
   </div> -->
   <?php include '../ltw_pizza/app/views/client/payment/payment_delivery.php' ?>
   <?php include '../ltw_pizza/app/views/components/footer.php' ?>
-=======
+
+  
+  <?php include '../ltw_pizza/app/views/client/homepage/carousel.php' ?>
+
   
   
   <?php include '../ltw_pizza/app/views/client/homepage/carousel.php' ?>
->>>>>>> 169227d (response orderlist-productdetail-carousel)
+
 
 </body>
 
