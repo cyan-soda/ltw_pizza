@@ -4,11 +4,12 @@
         die('Connect Error (' . mysqli_connect_errno() . ') '. mysqli_connect_error());
     }
 
-    $id = 1;
+    $id = 3;
     if (isset($_POST["submit"])) {
         $id=$_POST["submit"];
     }
-    $q = "SELECT * FROM `Product` WHERE Product_ID='$id'";
+
+    $q = "SELECT * FROM `Product` WHERE `Product_ID`='$id'";
     $ret = mysqli_query($conn,$q);
     if ($ret) {
         $row = mysqli_fetch_assoc($ret);

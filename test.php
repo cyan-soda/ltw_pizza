@@ -22,7 +22,7 @@
 </head>
 
 <body>
-<?php include '../ltw_pizza/app/views/client/Home/popup_productdetail.php' ?>
+<?php include '../ltw_pizza/app/views/components/menu_grid.php' ?>
 </body>
 
 
