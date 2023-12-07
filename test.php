@@ -13,14 +13,12 @@
     <link rel="stylesheet" href="public/css/bootstrap.min.css" />
     <link rel="stylesheet" href="public/css/promot.css" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     <title>Test</title>
 </head>
 
 <body>
-  
-  
-  <?php include '../ltw_pizza/app/views/client/homepage/carousel.php' ?>
-
+<?php include '../ltw_pizza/app/views/client/Home/popup_productdetail.php' ?>
 </body>
 
 

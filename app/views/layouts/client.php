@@ -17,8 +17,11 @@
   <link rel="stylesheet" href="../../../public/css/app.css">
   <link rel="stylesheet" href="../../../public/css/account.css">
   <link rel="stylesheet" href="../../../public/css/carousel.css">
+  <link rel="stylesheet" href="../../../public/css/popup_orderlist.css">
   <!-- <link rel="stylesheet" href="../../../public/css/uikit.min.css"> -->
   <!-- <link id="dm-light" rel="stylesheet" href="../../../assignment/public/assets/css/light.css" > -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body class="page-home dm-light">
