@@ -6,7 +6,7 @@
         public $server = "localhost";
         public $username = "root";
         public $password = "";
-        public $dtb = "pizza";
+        public $dtb = "pizzaCompany";
 
         function __construct()
         {

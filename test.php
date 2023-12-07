@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="public/css/orderlist.css" />
     <link rel="stylesheet" href="public/css/carousel.css" />
     <link rel="stylesheet" href="public/css/popup_orderlist.css" />
+    <link rel="stylesheet" href="public/css/menu.css" />
+    <link rel="stylesheet" href="public/css/payment.css" />
     <link rel="stylesheet" href="public/css/popup_productdetail.css" />
     <link rel="stylesheet" href="public/css/uikit.min.css" />
     <link rel="stylesheet" href="public/css/bootstrap.min.css" />
@@ -18,9 +20,11 @@
 </head>
 
 <body>
-  <?php include '../ltw_pizza/app/views/components/header.php' ?> 
-  
-  <?php include '../ltw_pizza/app/views/components/popup_productdetail.php' ?>
+  <!-- <?php include '../ltw_pizza/app/views/components/header.php' ?>  -->
+  <!-- <div>
+  <?php include '../ltw_pizza/app/views/components/menu_grid.php' ?>
+  </div> -->
+  <?php include '../ltw_pizza/app/views/client/payment/payment_delivery.php' ?>
   <?php include '../ltw_pizza/app/views/components/footer.php' ?>
 
 </body>
