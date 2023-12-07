@@ -1,8 +1,8 @@
 -- SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 -- START TRANSACTION;
 SET time_zone = "+00:00";
-CREATE DATABASE testt1;
-USE testt1;
+CREATE DATABASE pizzacompany;
+USE pizzacompany;
 
 
 CREATE TABLE Customer (
@@ -16,7 +16,8 @@ CREATE TABLE Customer (
     Province VARCHAR(255) NULL,
     District VARCHAR(255) NULL,
     Ward VARCHAR(255) NULL,
-    Street VARCHAR(255) NULL
+    Street VARCHAR(255) NULL,
+    Logged BOOLEAN NOT NULL DEFAULT FALSE
     -- Include additional attributes and constraints as necessary.
 );
 
@@ -74,15 +75,6 @@ CREATE TABLE `Order` (
     FOREIGN KEY (Branch_ID) REFERENCES Branch(Branch_ID)
 );
 
-CREATE TABLE Order_Line (
-    Order_ID INT,
-    Product_ID VARCHAR(10),
-    Quantity INT NOT NULL,
-    Total_Price DECIMAL(10, 2) NOT NULL,
-    PRIMARY KEY (Order_ID, Item_ID),
-    FOREIGN KEY (Order_ID) REFERENCES `Order`(Order_ID),
-    FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID)
-);
 
 CREATE TABLE Bill (
     Bill_ID INT AUTO_INCREMENT PRIMARY KEY,
@@ -98,7 +90,7 @@ CREATE TABLE Bill (
     Total_Price INT NOT NULL,
     Method ENUM('CASH', 'MOMO', 'ZaloPay') NOT NULL,
     Promotion_ID INT,
-    FOREIGN KEY (Order_ID) REFERENCES Promotion(Order_ID),
+    FOREIGN KEY (Order_ID) REFERENCES `Order`(Order_ID),
     FOREIGN KEY (Promotion_ID) REFERENCES Promotion(Promotion_ID),
     FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID)
 );
@@ -108,8 +100,18 @@ CREATE TABLE Product (
     Name VARCHAR(255) NOT NULL,
     Price INT NOT NULL,
     Photo VARCHAR(255),
-    Description VARCHAR(100),
+    Description TEXT,
     Type ENUM('Pizza', 'Fried Chicken', 'Spagetti', 'Salad', 'Beverage') NOT NULL
+);
+
+CREATE TABLE Order_Line (
+    Order_ID INT,
+    Product_ID INT,
+    Quantity INT NOT NULL,
+    Total_Price INT NOT NULL,
+    PRIMARY KEY (Order_ID, Product_ID),
+    FOREIGN KEY (Order_ID) REFERENCES `Order`(Order_ID),
+    FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID)
 );
 
 -- #####################Relationship#######################
@@ -168,7 +170,7 @@ VALUES
 ('user_9', 'pass123', 'Pham Van I', '0123456781', '1983-03-27', 'M', 'phamvani@example.com', '2023-09-11', 7000000, 'Chef', 5, NULL),
 ('user_10', 'pass123', 'Hoang Thi J', '0123456780', '1984-04-02', 'F', 'hoangthij@example.com', '2023-09-12', 3000000, 'Cashier', 5, NULL);
 
-INSERT INTO Promotion (Name, Short_Description, Image, Photo_Square, Application_Date, Expiration_Date, Application_Terms, Maximum_Discount, Discount_Method, Type)
+INSERT INTO Promotion (Name, Short_Description, Image, Photo_Square, Application_Date, Expiration_Date, Application_Terms, Maximum_Discount, Discount_Method, TypePromotion)
 VALUES
 ('ĐẠI TIỆC GRILL, CHILL NGON LÀANH', 'Một buổi tụ tập ấm cúng với đồ nướng sẽ là dịp để mọi người quây quần bên nhau, cùng thưởng thức những món ăn ngon và trò chuyện vui vẻ:
 Khay Nướng BBQ Tổng Hợp: Thịt được tẩm ướp đậm đà, nướng chín vàng đều, thơm lừng.', 'https://thepizzacompany.vn/images/thumbs/000/0003918_grill-and-chill_500.jpeg', 'https://thepizzacompany.vn/images/thumbs/000/0003885_WebsiteBanner_TPC_KVFestivel_1200x480px.jpeg', '2023-06-01', '2023-08-31', 'Áp dụng cho tất cả khách hàng', 10.00, 'PERCENTAGE', 'KM'),
@@ -214,16 +216,8 @@ INSERT INTO Product (Name, Price, Photo, Description, Type)
     ('Mirinda Soda Kem Lon', 29000, 'https://thepizzacompany.vn/images/thumbs/000/0002702_mirinda-soda-kem-can_500.png', '', 'Beverage'),
     ('Pepsi Black Lime Lon', 29000, 'https://thepizzacompany.vn/images/thumbs/000/0002573_pepsi-lime-can_500.png', '', 'Beverage'),
     ('7Up Soda Chanh', 29000, 'https://thepizzacompany.vn/images/thumbs/000/0002363_7-up-can_500.jpeg', '', 'Beverage'),
-    ('Pepsi Black Lon', 29000, 'https://thepizzacompany.vn/images/thumbs/000/0002420_pepsi-black-can_500.jpeg', '', 'Beverage')
+    ('Pepsi Black Lon', 29000, 'https://thepizzacompany.vn/images/thumbs/000/0002420_pepsi-black-can_500.jpeg', '', 'Beverage');
 
-
-
-INSERT INTO Bill (Customer_ID, Order_ID, Name, Phone, Province, District, DetailAddr, Note, Delivery_Fee, Total_Price, Method, Promotion_ID)
-VALUES
-(1, 1, 120000, 'Le Phan Thuy Tien', '0123456789' 'Thanh pho HCM', 'Thanh pho Thu Duc', '123 ACB', 'it ngot', 20000, 100000, 'ZaloPay', 1),
-(5, 3, 120000, 'Sugar cua Ha', '0123456789' 'Thanh pho HCM', 'Thanh pho Thu Duc', '123 ACB', 'it ngot', 20000, 300000, 'MOMO', 2),
-(30, 4, 120000, 'DHT', '0123456789' 'Thanh pho HCM', 'Thanh pho Thu Duc', '123 ACB', 'it ngot', 20000, 70000, 'ZaloPay', 4),
-(11, 2, 120000, 'Lap trinh Web', '0123456789' 'Thanh pho HCM', 'Thanh pho Thu Duc', '123 ACB', 'it ngot', 20000, 100000, 'ZaloPay', 1);
 
 
 INSERT INTO `Order` (Order_Date, Note,Total_Price,Status, Customer_ID, Cashier_ID, Branch_ID)
@@ -243,4 +237,12 @@ VALUES
 (2, 3, 2, 60000),
 (4, 9, 1, 30000),
 (5, 14, 1, 40000);
+
+INSERT INTO Bill (Customer_ID, Order_ID, Name, Phone, Province, District, DetailAddr, Note, Delivery_Fee, Total_Price, Method, Promotion_ID)
+VALUES
+(1, 1, 120000, 'Le Phan Thuy Tien', '0123456789' 'Thanh pho HCM', 'Thanh pho Thu Duc', '123 ACB', 'it ngot', 20000, 100000, 'ZaloPay', 1),
+(5, 3, 120000, 'Sugar cua Ha', '0123456789' 'Thanh pho HCM', 'Thanh pho Thu Duc', '123 ACB', 'it ngot', 20000, 300000, 'MOMO', 2),
+(30, 4, 120000, 'DHT', '0123456789' 'Thanh pho HCM', 'Thanh pho Thu Duc', '123 ACB', 'it ngot', 20000, 70000, 'ZaloPay', 4),
+(11, 2, 120000, 'Lap trinh Web', '0123456789' 'Thanh pho HCM', 'Thanh pho Thu Duc', '123 ACB', 'it ngot', 20000, 100000, 'ZaloPay', 1);
+
 

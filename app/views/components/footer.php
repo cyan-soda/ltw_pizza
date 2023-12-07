@@ -50,7 +50,7 @@
                 <div class="contact-item-box__title">LIÊN KẾT VỚI CHÚNG TÔI</div>
                 <div class="page-footer__social">
                   <ul class="social">
-                    <li class="social-item"><a class="social-link" href="#!"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="social-item"><a class="social-link" href="#!"><i class="fa-brands fa-facebook"></i></a></li>
                     <li class="social-item"><a class="social-link" href="#!"><i class="fab fa-instagram"></i></a></li>
                     <li class="social-item"><a class="social-link" href="#!"><i class="fab fa-youtube"></i></a></li>
                   </ul>
