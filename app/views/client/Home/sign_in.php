@@ -3,7 +3,7 @@
   $showError = "false";
   if($_SERVER["REQUEST_METHOD"] == "POST")
   {
-      include '_dbconnect.php';
+      include '../../../core/Database.php';
       $phone = $_POST['phone'];
       $pass = $_POST['password'];
 
@@ -13,12 +13,13 @@
       if($numRows == 1)
       {
           $row = mysqli_fetch_assoc($result);
+          $hash = password_hash($pass, PASSWORD_DEFAULT); 
           if(password_verify($pass, $row['password'])){
               session_start();
               $_SESSION['loggedin'] = true;
               $_SESSION['sno'] = $row['sno'];
               $_SESSION['phone'] = $phone;
-              echo "logged in";
+              // echo "logged in";
           } 
           header("Location: /Home/index.php");  
       }

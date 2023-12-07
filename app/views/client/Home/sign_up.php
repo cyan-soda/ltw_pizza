@@ -12,7 +12,7 @@
         $confirm_password = $_POST['confirm-password'];
 
         // add to database
-        $sql = "SELECT * from `users` where phone='$phone'"; 
+        $sql = "SELECT * from `Customer` where Phone='$phone'"; 
         
         $result = mysqli_query($con, $sql); 
     
@@ -145,4 +145,11 @@
         }
     });
 });
+
+    function validate()
+    {
+        if(!(document.getElementById("password").value == document.getElementById("confirm-password").value))
+            alert("Passwords do not match!");
+        return (document.getElementById("password").value == document.getElementById("confirm-password").value);
+    }
 </script>
