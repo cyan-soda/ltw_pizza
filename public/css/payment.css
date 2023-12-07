@@ -1,0 +1,184 @@
+
+.method-container {
+    background-color: rgb(255, 255, 255);
+    margin-top: 1%;
+    width: 83%;
+}
+
+.delivery-method-noti {
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(216, 216, 216);
+    padding: 2% 1% 2% 1%;
+    margin-bottom: 3%;
+}
+
+.delivery-method-title, .delivery-info-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgb(203, 202, 202);
+}
+
+.delivery-info-title {
+    font-size: 24px;
+    border: none;
+}
+
+.delivery-method-choice-container {
+    margin-top: 1%;
+
+}
+
+.delivery-method-choice {
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(216, 216, 216);
+    padding: 2% 1% 2% 1%;
+    /* margin-right: -10px; */
+    height: 100%;
+    border: 1px solid  white;
+
+}
+
+.delivery-method-choice:active {
+    border: 1px solid red;
+}
+
+
+.icon-container {
+    display: flex;
+    align-items: center;
+}
+
+.method-choice-title {
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(63, 140, 78);
+    border-bottom: 1px solid rgb(216, 216, 216);
+    padding-bottom: 1%;
+}
+
+.emphasized {
+    color: rgb(204, 3, 3);
+    font-weight: 700;
+}
+
+.detail-label {
+    font-size: 15px;
+}
+
+.order-container {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(216, 216, 216);
+    padding: 2% 2% 2% 1%;
+    margin-top: 2%;
+    margin-bottom: 4%;
+}
+
+.detail-column {
+    margin-top: 1%;
+
+}
+
+.detail-column > div {
+    margin-top: 2%;
+}
+
+.payment-name-container {
+    border: 1px solid rgb(203, 202, 202);
+    border-radius: 10px;
+    margin-left: 2%;
+    margin-right: 0 !important;
+    padding: 1% 2px 1% 1%;
+}
+
+.payment-method {
+    font-weight: 700;
+    margin-bottom: 1%;
+}
+
+.payment-method-radio {
+    width: 100% !important;
+}
+
+.payment-radio-form {
+    width: 100% !important;
+} 
+
+/* .choice {
+    height: 100px;
+}*/
+
+.dish-name {
+    font-weight: 600;
+}
+
+.dish-detail {
+    font-size: 110%;
+    display: flex;
+    /* border-bottom: 1px solid rgb(203, 202, 202); */
+}
+
+.content-in-bill {
+    padding: 0;
+    padding-top: 1% 1%;
+    margin: 1% 1%;
+}
+
+.price-calculate {
+    font-size: 90%;
+    color: rgb(41, 40, 40);
+    /* padding-top: 1%; */
+    margin: 0;
+    padding-right: 0;
+}
+
+.payment-component-container {
+    margin-top: 1%;
+    width: 81%;
+}
+
+
+.payment-choice-container {
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(216, 216, 216);
+    padding: 2% 1% 2% 1%;
+    height: 100%;
+    margin-left: 2%;
+    margin-right: 2%;
+
+}
+
+.total-price-area {
+    /* border-top: 1px solid rgb(203, 202, 202); */
+    padding: 0;
+    padding: 2% 1%;
+    
+}
+
+.total-title {
+    font-size: 110%;
+    font-weight: 600;
+    
+}
+
+.total-price {
+    font-size: 110%;
+    font-weight: 600;
+    color:rgb(204, 3, 3);
+}
+
+.temporarily {
+    border-top: 1px solid rgb(203, 202, 202);
+}
+
+/* .temporarily-calculate {
+    padding: 1%;
+} */
+
+.menu-price {
+    padding-bottom: 2%;
+    font-size: 100%;
+    font-weight: 600;
+}
+
+

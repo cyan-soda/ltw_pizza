@@ -14,6 +14,7 @@ ul {
 	list-style: none;
 }
 
+
 .content{
 	background-color: rgba(204, 204, 204, 0.4);
 }
@@ -25,12 +26,12 @@ ul {
 	grid-template-rows: auto auto; /* Hai hàng, chiều cao tự động */
 	gap: 1rem;
 	padding: 2rem;
-    margin: 6rem 0 0 10rem;
+    /* margin: 6rem 0 0 10rem; */
 }
 
 .content .manage-btn {
-    width: 160px;
-    height: 160px;
+    width: 170px;
+    height: 170px;
 	background-color: #f8f9fa;
 	display: flex;
     flex-direction: column;
@@ -40,15 +41,28 @@ ul {
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 	border-radius: 1.6rem; 
 	transition: all 0.3s ease-in-out;
-    margin-bottom: 60px;
+    margin:60px 0px 60px 120px ;
 }
 
 .manage-btn:hover {
-	transform: translateY(-5px); 
+	transform: translateY(-7px); 
 }
 
 .manage-btn i {
     font-size: 28px;
+}
+
+.container .scrollable-table {
+    display: block;
+    max-height: 500px; 
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #ddd; 
+    margin-top: 20px; 
+}
+
+.container .scrollable-table tr th{
+	padding: 12px 8px;
 }
 
 

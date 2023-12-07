@@ -1,3 +1,58 @@
+<!-- 
+    <div>
+      <button class="show-modal">Show Modal</button>
+      <span class="overlay"></span>
+
+      <div class="modal-box">
+        <i class="fa-regular fa-circle-check"></i>
+        <h2>Completed</h2>
+        <h3>You have sucessfully downloaded all the source code files.</h3>
+
+        <div class="buttons">
+          <button class="close-btn">Ok, Close</button>
+          <button>Open File</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const section = document.querySelector("section"),
+        overlay = document.querySelector(".overlay"),
+        showBtn = document.querySelector(".show-modal"),
+        closeBtn = document.querySelector(".close-btn");
+
+      showBtn.addEventListener("click", () => section.classList.add("active"));
+
+      overlay.addEventListener("click", () =>
+        section.classList.remove("active")
+      );
+
+      closeBtn.addEventListener("click", () =>
+        section.classList.remove("active")
+      );
+    </script>
+ -->
+
+ <?php
+	$link = mysqli_connect("localhost","root","","shop");
+	if (!$link) {
+		die('Connect Error (' . mysqli_connect_errno() . ') '
+				. mysqli_connect_error());
+	}
+
+	// $id=$_GET["id"];
+    $id=2;
+    $q="SELECT * FROM products WHERE id=$id";
+    $ret = mysqli_query($link,$q);
+
+    if($ret){
+        $row = mysqli_fetch_array($ret);
+        $name=$row["name"];
+        $description=$row["description"];
+        $price=$row["price"];
+        $image=$row["image"];
+    }
+?>
 
 <div class="overplay">
 
@@ -5,20 +60,20 @@
         <span class="close-btn" onclick="closePopup()">&times;</span>
         <div class="popupproductleft col-md-6 col-12">
             <div class="popup_productimage">
-                <img src="https://thepizzacompany.vn/images/thumbs/000/0003791_caramelized-french-onion-cheese-tart_500.jpeg" class="productimage"  alt="Ảnh của product"></img>
+                <img scr=<?php echo $image ?> class="productimage"  alt="Ảnh của product"></img>
             </div>
             <div id="popup_productprice" class="popup_price">
-                79000đ
+                <?php  echo $price?>
             </div>
         </div>
         <div class="popupright_product col-md-6 col-12">
             <div class="popup_infor">
                 <div class="popup_productname">
                     <h3 class="popup_name">
-                        Product Name
+                        <?php  echo $name?>
                     </h3>
                     <p>
-                        Đây là mô tả chi tiết của món ăn
+                        <?php  echo $description?>
                     </p>
                 </div>
                     <p class="popup_namecolor">Size</p>

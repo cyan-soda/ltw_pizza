@@ -1,8 +1,8 @@
 -- SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 -- START TRANSACTION;
 SET time_zone = "+00:00";
-CREATE DATABASE pizzaCompany;
-USE pizzaCompany;
+CREATE DATABASE testt1;
+USE testt1;
 
 
 CREATE TABLE Customer (
@@ -49,11 +49,15 @@ CREATE TABLE Employee (
 CREATE TABLE Promotion (
     Promotion_ID INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(255) NOT NULL,
+    Short_Description TEXT,
+    Image VARCHAR(255),
+    Photo_Square VARCHAR(255),
     Application_Date DATE NOT NULL,
     Expiration_Date DATE NOT NULL,
     Application_Terms TEXT NOT NULL,
-    Maximum_Discount DECIMAL(5, 2) NOT NULL,
-    Discount_Method ENUM('PERCENTAGE', 'AMOUNT') NOT NULL
+    Maximum_Discount INT NOT NULL,
+    Discount_Method ENUM('PERCENTAGE', 'AMOUNT') NOT NULL,
+    TypePromotion ENUM('KM', 'Unbox') NOT NULL
 );
 
 CREATE TABLE `Order` (
@@ -61,7 +65,7 @@ CREATE TABLE `Order` (
     Order_Date DATETIME NOT NULL,
     Note TEXT,
     Status ENUM('PROCESSING', 'CONFIRMED', 'COMPLETED', 'CANCELLED') NOT NULL,
-    Total_Price DECIMAL(10, 2) NOT NULL,
+    Total_Price INT NOT NULL,
     Customer_ID INT,
     Cashier_ID INT,
     Branch_ID INT,
@@ -70,19 +74,31 @@ CREATE TABLE `Order` (
     FOREIGN KEY (Branch_ID) REFERENCES Branch(Branch_ID)
 );
 
+CREATE TABLE Order_Line (
+    Order_ID INT,
+    Product_ID VARCHAR(10),
+    Quantity INT NOT NULL,
+    Total_Price DECIMAL(10, 2) NOT NULL,
+    PRIMARY KEY (Order_ID, Item_ID),
+    FOREIGN KEY (Order_ID) REFERENCES `Order`(Order_ID),
+    FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID)
+);
+
 CREATE TABLE Bill (
     Bill_ID INT AUTO_INCREMENT PRIMARY KEY,
-    Feedback TEXT,
     Customer_ID INT,
     Order_ID INT NOT NULL,
-    Bill_Date DATE NOT NULL,
-    Delivery_Fee DECIMAL(10, 2) NOT NULL,
-    Total_Price DECIMAL(10, 2) NOT NULL,
-    Method ENUM('CASH', 'MOMO', 'BANKING') NOT NULL,
-    Delivery ENUM('SeftTake', 'Ship') NOT NULL,
+    Name VARCHAR(255) NOT NULL,
+    Phone VARCHAR(255) NOT NULL,
+    Province VARCHAR(255) NOT NULL,
+    District VARCHAR(255) NOT NULL,
+    DetailAddr VARCHAR(255) NOT NULL,
+    Note TEXT,
+    Delivery_Fee INT NOT NULL,
+    Total_Price INT NOT NULL,
+    Method ENUM('CASH', 'MOMO', 'ZaloPay') NOT NULL,
     Promotion_ID INT,
-    Discount_Price DECIMAL(10, 2),
-    Discount_Percent DECIMAL(5, 2),
+    FOREIGN KEY (Order_ID) REFERENCES Promotion(Order_ID),
     FOREIGN KEY (Promotion_ID) REFERENCES Promotion(Promotion_ID),
     FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID)
 );
@@ -90,7 +106,7 @@ CREATE TABLE Bill (
 CREATE TABLE Product (
     Product_ID INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(255) NOT NULL,
-    Price DECIMAL(10, 2) NOT NULL,
+    Price INT NOT NULL,
     Photo VARCHAR(255),
     Description VARCHAR(100),
     Type ENUM('Pizza', 'Fried Chicken', 'Spagetti', 'Salad', 'Beverage') NOT NULL
@@ -152,9 +168,79 @@ VALUES
 ('user_9', 'pass123', 'Pham Van I', '0123456781', '1983-03-27', 'M', 'phamvani@example.com', '2023-09-11', 7000000, 'Chef', 5, NULL),
 ('user_10', 'pass123', 'Hoang Thi J', '0123456780', '1984-04-02', 'F', 'hoangthij@example.com', '2023-09-12', 3000000, 'Cashier', 5, NULL);
 
-INSERT INTO Promotion (Name, Application_Date, Expiration_Date, Application_Terms, Maximum_Discount, Discount_Method)
+INSERT INTO Promotion (Name, Short_Description, Image, Photo_Square, Application_Date, Expiration_Date, Application_Terms, Maximum_Discount, Discount_Method, Type)
 VALUES
-('Khuyến mãi', '2023-06-01', '2023-08-31', 'Áp dụng cho tất cả khách hàng', 10.00, 'PERCENTAGE'),
-('Giảm giá', '2023-09-01', '2023-09-30', 'Áp dụng cho đơn hàng trên 500,000 VND', 50.00, 'AMOUNT'),
-('Lần đầu', '2023-10-01', '2023-10-31', 'Chỉ áp dụng cho khách hàng mua lần đầu', 15.00, 'PERCENTAGE'),
-('Ưu đãi', '2023-12-01', '2023-12-25', 'Áp dụng cho mọi đơn hàng', 100.00, 'AMOUNT');
+('ĐẠI TIỆC GRILL, CHILL NGON LÀANH', 'Một buổi tụ tập ấm cúng với đồ nướng sẽ là dịp để mọi người quây quần bên nhau, cùng thưởng thức những món ăn ngon và trò chuyện vui vẻ:
+Khay Nướng BBQ Tổng Hợp: Thịt được tẩm ướp đậm đà, nướng chín vàng đều, thơm lừng.', 'https://thepizzacompany.vn/images/thumbs/000/0003918_grill-and-chill_500.jpeg', 'https://thepizzacompany.vn/images/thumbs/000/0003885_WebsiteBanner_TPC_KVFestivel_1200x480px.jpeg', '2023-06-01', '2023-08-31', 'Áp dụng cho tất cả khách hàng', 10.00, 'PERCENTAGE', 'KM'),
+('MUA 1 TẶNG 1 VÀO THỨ 3 THỨ 4', 'Mua 1 Pizza size M/L, tặng 1 Pizza (Đế Dày/Mỏng) dòng Classic cùng cỡ.', 'https://thepizzacompany.vn/images/uploaded/BOGO_WebBanner_(W1200xH480)px%20(1).jpg', 'https://thepizzacompany.vn/images/thumbs/000/0003880_bogo_500.jpeg', '2023-09-01', '2023-09-30', 'Áp dụng cho đơn hàng trên 100,000 VND', 50000, 'AMOUNT', 'KM'),
+('TIẾT KIỆM 50% CHO PIZZA THỨ 2','Mua 1 Pizza từ size M và 1 thức uống bất kỳ được giảm ngay 50% khi mua Pizza thứ 2, cùng cỡ. Bánh Pizza thứ 2 có giá trị bằng hoặc thấp hơn so với Pizza thứ nhất.','https://thepizzacompany.vn/50-off-second-pizza%20','https://thepizzacompany.vn/images/thumbs/000/0003873_50-off-second-pizza_500.jpeg', '2023-10-01', '2023-10-31', 'Chỉ áp dụng cho khách hàng mua lần đầu', 15.00, 'PERCENTAGE', 'KM'),
+('#UNBOX - TẶNG BỘ LY KHI MUA CÙNG PEPSI', 'Combo ưu đãi với mức giá tiết kiệm đến 50% và được lựa chọn món đa dạng trong Combo. Chỉ áp dụng cho đơn hàng đặt trên Website: thepizzacompany.vn và Hotline 19006066 hoặc mua mang về trực tiếp tại nhà hàng.', 'https://thepizzacompany.vn/images/uploaded/Unboxtangly_WebBanner_(W1200xH480)px.jpg', 'https://thepizzacompany.vn/images/thumbs/000/0003879_unbox_500.jpeg', '2023-12-01', '2023-12-25', 'Áp dụng cho mọi đơn hàng', 0, 'AMOUNT', 'Unbox');
+
+
+INSERT INTO Product (Name, Price, Photo, Description, Type) 
+    VALUES
+    ('Pizza Hải Sản Đào', 169000, 'https://thepizzacompany.vn/images/thumbs/000/0003102_seafood-peach_500.png', 'Tôm, Đào hoà quyện bùng nổ cùng sốt Thousand Island', 'Pizza'),
+    ('Pizza Hải Sản Pesto Xanh', 169000, 'https://thepizzacompany.vn/images/thumbs/000/0002624_seafood-pesto_500.png','Tôm, thanh cua, mực và bông cải xanh tươi ngon trên nền sốt Pesto Xanh', 'Pizza'),
+    ('Pizza Hải Sản Cocktail', 149000, 'https://thepizzacompany.vn/images/thumbs/000/0002212_sf-cocktail_500.png', 'Tôm, cua, giăm bông,... với sốt Thousand Island', 'Pizza'),
+    ('Pizza Aloha', 139000, 'https://thepizzacompany.vn/images/thumbs/000/0003536_aloha_500.png', 'Thịt nguội, xúc xích tiêu cay và dứa hòa quyện với sốt Thousand Island', 'Pizza'),
+    ('Pizza Gà Nướng Dứa', 119000, 'https://thepizzacompany.vn/images/thumbs/000/0002228_ck-caldo_500.png', 'Thịt gà mang vị ngọt của dứa kết hợp với vị cay nóng của ớt', 'Pizza'),
+    ('Pizza Phô Mai', 119000, 'https://thepizzacompany.vn/images/thumbs/000/0002226_double-cheese_500.png', 'Bánh Pizza với vô vàn phô mai để bạn tha hồ tận hưởng.', 'Pizza'),
+    ('Pizza Thịt Nguội Kiểu Canada', 139000, 'https://thepizzacompany.vn/images/thumbs/000/0002222_ca-bacon_500.png', 'Sự kết hợp giữa thịt nguội và bắp ngọt', 'Pizza'),
+    ('Pizza Gà Nướng 3 Vị', 149000, 'https://thepizzacompany.vn/images/thumbs/000/0002223_ck-trio_500.png', 'Gà nướng, gà bơ tỏi và gà ướp sốt nấm', 'Pizza'),
+    ('Cánh gà nướng BBQ (6 miếng)', 139000, 'https://thepizzacompany.vn/images/thumbs/000/0002233_bbq-chicken-wings-6-pcs_500.jpeg', 'Cánh gà nướng thấm vị với lớp da mỏng giòn', 'Fried Chicken'),
+    ('Cánh Gà Tẩm Bột Chiên Giòn (6 miếng)', 139000, 'https://thepizzacompany.vn/images/thumbs/000/0002238_korean-style-chicken-wings-6pcs_500.jpeg', 'Phủ bởi lớp bột đặc biệt tạo nên lớp vỏ giòn dai hấp dẫn.', 'Fried Chicken'),
+    ('Mực Chiên Giòn', 119000, 'https://thepizzacompany.vn/images/thumbs/000/0002242_squid-rings_500.jpeg', 'Mực tẩm bột chiên giòn dùng kèm sốt ngò tây', 'Fried Chicken'),
+    ('Giỏ Khoai Tây Chiên', 89000, 'https://thepizzacompany.vn/images/thumbs/000/0003794_potato-basket_500.jpeg', 'Sự kết hợp của nhiều kiểu chế biến khoai tây', 'Fried Chicken'),
+    ('Bánh Mì Bơ Tỏi Phủ Phô Mai', 69000, 'https://thepizzacompany.vn/images/thumbs/000/0002244_cheese-garlic-breads_500.jpeg', 'CLát bánh mì nướng được quết 1 lớp bơ tỏi và phô mai thơm béo', 'Fried Chicken'),
+    ('Khoai Tây Chiên', 79000, 'https://thepizzacompany.vn/images/thumbs/000/0003619_french-fries_500.png', 'Khoai tây sợi được chiên và tẩm một lớp muối thấm vị', 'Fried Chicken'),
+    ('Gà Giòn Không Xương', 99000, 'https://thepizzacompany.vn/images/thumbs/000/0003795_chicken-strip_500.jpeg', 'Gà giòn tan với sốt Cocktail thơm ngậy', 'Fried Chicken'),
+    ('Bánh Kẹp Nướng Mexico', 119000, 'https://thepizzacompany.vn/images/thumbs/000/0003792_quesadilla_500.jpeg', 'Phô mai, sốt cà chua, nhân gà nướng bơ tỏi, ớt sừng dùng kèm sốt cocktail', 'Fried Chicken'),
+    ('Mỳ Ý Tôm Sốt Kem Cà Chua', 139000, 'https://thepizzacompany.vn/images/thumbs/000/0002257_spaghetti-shrimp-rose_500.png', 'Sự tươi ngon của tôm kết hợp với sốt kem cà chua', 'Spagetti'),
+    ('Mỳ Ý Cay Xúc Xích', 119000, 'https://thepizzacompany.vn/images/thumbs/000/0002254_spicy-sausage-spaghetti_500.png', 'Mỳ Ý rán với xúc xích cay, thảo mộc, ngò gai và húng quế Ý', 'Spagetti'),
+    ('Mỳ Ý thịt bò bằm', 149000, 'https://thepizzacompany.vn/images/thumbs/000/0002258_spaghetti-bolognese_500.png', 'Sốt thịt bò bằm đặc trưng kết hợp cùng mỳ Ý', 'Spagetti'),
+    ('Mỳ Ý Cay Hải Sản', 119000, 'https://thepizzacompany.vn/images/thumbs/000/0002253_spaghetti-spicy-seafood_500.png', 'Mỳ Ý rán với các loại hải sản tươi ngon cùng ớt và tỏi', 'Spagetti'),
+    ('Mỳ Ý Chay Sốt Marinara', 99000, 'https://thepizzacompany.vn/images/thumbs/000/0003135_spaghetti-vegetarian-w-marinara-sauce_500.png', 'Mỳ Ý áp chảo với sốt Marinara, nấm và cà chua đỏ', 'Spagetti'),
+    ('Mỳ Ý Chay Sốt Kem Tươi', 99000, 'https://thepizzacompany.vn/images/thumbs/000/0002260_spaghetti-veggi-mushroom-cream-sauce_500.png', 'Mỳ Ý chay thơm ngon với sốt kem và nấm', 'Spagetti'),
+    ('Mỳ Ý Truffle', 149000, 'https://thepizzacompany.vn/images/thumbs/000/0003667_ham-mushroom-w-cream-truffle-sause_500.png', 'Nấm Truffle đen với hương thơm ngất ngây, phủ trên lớp sốt kem nấm beo béo đậm đà cùng thịt giăm bông mềm mại.', 'Spagetti'),
+    ('Mì Ý Pesto', 139000, 'https://thepizzacompany.vn/images/thumbs/000/0003669_pasta-seafood-w-pesto-sauce_500.png', 'Các loại nguyên liệu hải sản hảo hạng: Tôm, mực hoà quyện trên nền sốt Pesto xanh đậm vị, thơm hương đặc trưng từ lá húng tây, mang đậm nét truyền thống ẩm thực Ý.', 'Spagetti'),
+    ('Salad Trái Cây Sốt Đào', 89000, 'https://thepizzacompany.vn/images/thumbs/000/0003668_fruitsaladbaconpeachsauce_500.png', 'Các loại trái cây thanh mát: đào, thanh long, táo, dưa hấu, cà chua bi hoà quyện cùng xốt Đào chua ngọt đặc trưng dùng kèm thịt xông khói.', 'Salad'),
+    ('Salad Trộn Dầu Giấm', 79000, 'https://thepizzacompany.vn/images/thumbs/000/0002252_garden-salad_500.png', 'Rau với sốt dầu giấm', 'Salad'),
+    ('Salad Nui', 79000, 'https://thepizzacompany.vn/images/thumbs/000/0003784_macaronisalad_500.png', '', 'Salad'),
+    ('Salad Đặc Sắc', 89000, 'https://thepizzacompany.vn/images/thumbs/000/0002250_signature-salad_500.png', 'Salad rau và trái cây tươi dùng kèm xốt kem đặc biệt của The Pizza Company.', 'Salad'),
+    ('Salad Gà Giòn Không Xương', 89000, 'https://thepizzacompany.vn/images/thumbs/000/0002600_chicken-strip-salad_500.png', 'Các loại trái cây thanh mát: đào, thanh long, táo, dưa hấu, cà chua bi hoà quyện cùng xốt Đào chua ngọt đặc trưng dùng kèm thịt xông khói.', 'Salad'),
+    ('Salad Da Cá Hồi Giòn', 89000, 'https://thepizzacompany.vn/images/thumbs/000/0002601_crispy-salmon-skin-salad_500.png', 'Salad với da cá hồi giòn với bắp cải đỏ, cà chua bi, ngô với sốt Yuzu.', 'Salad'),
+    ('Salad Trộn Sốt Caesar', 89000, 'https://thepizzacompany.vn/images/thumbs/000/0002251_caesars-salad_500.png', 'Rau tươi trộn với sốt Caesar.', 'Salad'),
+    ('Salad Bắp Cải', 39000, 'https://thepizzacompany.vn/images/thumbs/000/0003275_cabbage-salad_500.png', '', 'Salad'),
+    ('Mirinda Soda Kem Lon', 29000, 'https://thepizzacompany.vn/images/thumbs/000/0002702_mirinda-soda-kem-can_500.png', '', 'Beverage'),
+    ('Pepsi Black Lime Lon', 29000, 'https://thepizzacompany.vn/images/thumbs/000/0002573_pepsi-lime-can_500.png', '', 'Beverage'),
+    ('7Up Soda Chanh', 29000, 'https://thepizzacompany.vn/images/thumbs/000/0002363_7-up-can_500.jpeg', '', 'Beverage'),
+    ('Pepsi Black Lon', 29000, 'https://thepizzacompany.vn/images/thumbs/000/0002420_pepsi-black-can_500.jpeg', '', 'Beverage')
+
+
+
+INSERT INTO Bill (Customer_ID, Order_ID, Name, Phone, Province, District, DetailAddr, Note, Delivery_Fee, Total_Price, Method, Promotion_ID)
+VALUES
+(1, 1, 120000, 'Le Phan Thuy Tien', '0123456789' 'Thanh pho HCM', 'Thanh pho Thu Duc', '123 ACB', 'it ngot', 20000, 100000, 'ZaloPay', 1),
+(5, 3, 120000, 'Sugar cua Ha', '0123456789' 'Thanh pho HCM', 'Thanh pho Thu Duc', '123 ACB', 'it ngot', 20000, 300000, 'MOMO', 2),
+(30, 4, 120000, 'DHT', '0123456789' 'Thanh pho HCM', 'Thanh pho Thu Duc', '123 ACB', 'it ngot', 20000, 70000, 'ZaloPay', 4),
+(11, 2, 120000, 'Lap trinh Web', '0123456789' 'Thanh pho HCM', 'Thanh pho Thu Duc', '123 ACB', 'it ngot', 20000, 100000, 'ZaloPay', 1);
+
+
+INSERT INTO `Order` (Order_Date, Note,Total_Price,Status, Customer_ID, Cashier_ID, Branch_ID)
+VALUES
+('2023-11-21', 'Ghi chú mẫu 1',120000,'PROCESSING', 1, 2, 1),
+('2023-11-23', 'Ghi chú mẫu 2',160000,'COMPLETED', 2, 4, 2),
+('2023-11-25', 'Ghi chú mẫu 3',80000,'CANCELLED', 3, 6, 3),
+('2023-11-27', 'Ghi chú mẫu 4',30000,'COMPLETED', 4, 8, 4),
+('2023-11-29', 'Ghi chú mẫu 5',40000,'PROCESSING', 5, 10, 5);
+
+INSERT INTO Order_Line (Order_ID, Product_ID, Quantity, Total_Price)
+VALUES
+(1, 4, 2, 80000),
+(1, 8, 1, 40000),
+(2, 12, 1, 50000),
+(2, 5, 1, 30000),
+(2, 3, 2, 60000),
+(4, 9, 1, 30000),
+(5, 14, 1, 40000);
+

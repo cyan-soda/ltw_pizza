@@ -25,19 +25,18 @@
             <div class="content col-md-10 p-0">
                 <div class="grid-container">
                     <!-- Grid items -->
-                    <div id="manage-product" class="manage-btn product"><i class="fas fa-project-diagram"></i><br>Quản
-                        lý Sản phẩm</div>
-                    <div id="manage-customer" class="manage-btn manage-customer"><i
-                            class="fa-solid fa-user"></i><br>Quản lý Khách hàng
+                    <div id="manage-branch" class="manage-btn product"><i class="fas fa-project-diagram"></i><br>Quản
+                        lý Chi nhánh</div>
+                    <div id="manage-employee" class="manage-btn manage-report"><i
+                            class="fa-solid fa-user-plus"></i><br>Quản lý nhân viên
                     </div>
-                    <div id="manage-report" class="manage-btn manage-report"><i
-                            class="fas fa-chart-line"></i></i><br>Thống
-                        kê và Báo cáo</div>
-                    <div id="manage-order" class="manage-btn order"><i class="fas fa-paperclip"></i><br>Quản lý Đơn Hàng
+                    <div id="manage-customer" class="manage-btn manage-customer"><i
+                            class="fa-solid fa-users"></i><br>Quản lý Khách hàng
+                    </div>
+                    <div id="manage-order" class="manage-btn order"><i class="fa-solid fa-chart-column"></i><br>Quản lý Đơn Hàng
                     </div>
                     <div id="manage-news" class="manage-btn manage-news"><i class="fa-solid fa-ticket"></i><br>Tin tức
-                        và
-                        khuyến mãi</div>
+                        và khuyến mãi</div>
                 </div>
             </div>
         </div>
