@@ -5,17 +5,8 @@
     ?>
 
     <main class="page-main">
-        <div class="container">
-          <h1>hehe</h1> <br>
-          <h1>hehe</h1> <br>
-          <h1>hehe</h1> <br>
-          <h1>hehe</h1> <br>
-          <h1>hehe</h1> <br>
-          <h1>hehe</h1> <br>
-          <h1>hehe</h1> <br>
-          <h1>hehe</h1> <br>
-          <h1>hehe</h1> <br>
-        </div>
+        <?php include "./app/views/client/Home/carousel.php";?>
+
     </main>
 
     <?php 

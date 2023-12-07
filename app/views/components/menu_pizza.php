@@ -3,17 +3,16 @@
     if (!$conn) {
         die('Connect Error (' . mysqli_connect_errno() . ') '. mysqli_connect_error());
     }
-    $q = "SELECT * FROM `Product`";
+
+    $q = "SELECT * FROM `Product` WHERE Type='Pizza'";
     $ret = mysqli_query($conn,$q);
 
-    
     while($row = mysqli_fetch_assoc($ret)){
         $myArray[] = $row;
     }
 
     $information = json_encode($myArray, JSON_HEX_QUOT);    
 ?>
-
 
         <div class="container">
             <div class="row menu-grid">
@@ -32,7 +31,7 @@
                                             <div class="col d-flex align-items-center dish-cover-container"><img class="dish-cover" src="${list[i].Photo}"></div>
                                             <div class="col pl-2">
                                                 <div class="row dish-name"><a class="dish-link">${list[i].Name}</a></div>
-                                                <div class="row dish-description" >${list[i].Pescription}</div>
+                                                <div class="row dish-description" >${list[i].Description}</div>
                                                 <div class="row price-row">
                                                     <div class="col d-block d-md-flex price-detail">
                                                         <p class="price-from">Giá chỉ từ</p>
