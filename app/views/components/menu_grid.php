@@ -60,7 +60,9 @@
                                                     </div>
 
                                                     <div class="col inside-column buy-button-container">
-                                                        <button type="button" class="buy-button">Mua ngay </button>
+                                                    <form action="./app/views/client/Home/orderlist.php" method="POST">
+                                                        <button type="submit" name="submit" value='${list[i].Product_ID}' class="buy-button">Mua Ngay</button>
+                                                    </form>
                                                     </div>
                                                 </div>
                                             </div>   
