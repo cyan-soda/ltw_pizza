@@ -15,7 +15,7 @@
                 die('Connection failed: ' . mysqli_connect_error());
             } else {
                 mysqli_query($this->con, "SET NAMES 'utf8'");
-                echo 'Connected successfully!';
+                // echo 'Connected successfully!';
             }
         }
     }
