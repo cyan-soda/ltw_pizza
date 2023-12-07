@@ -1,8 +1,8 @@
 -- SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 -- START TRANSACTION;
 SET time_zone = "+00:00";
-CREATE DATABASE pizzaCompany;
-USE pizzaCompany;
+CREATE DATABASE testt1;
+USE testt1;
 
 
 CREATE TABLE Customer (
@@ -49,11 +49,15 @@ CREATE TABLE Employee (
 CREATE TABLE Promotion (
     Promotion_ID INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(255) NOT NULL,
+    Short_Description TEXT,
+    Image VARCHAR(255),
+    Photo_Square VARCHAR(255),
     Application_Date DATE NOT NULL,
     Expiration_Date DATE NOT NULL,
     Application_Terms TEXT NOT NULL,
-    Maximum_Discount DECIMAL(5, 2) NOT NULL,
-    Discount_Method ENUM('PERCENTAGE', 'AMOUNT') NOT NULL
+    Maximum_Discount INT NOT NULL,
+    Discount_Method ENUM('PERCENTAGE', 'AMOUNT') NOT NULL,
+    TypePromotion ENUM('KM', 'Unbox') NOT NULL
 );
 
 CREATE TABLE `Order` (
@@ -89,7 +93,7 @@ CREATE TABLE Bill (
     Province VARCHAR(255) NOT NULL,
     District VARCHAR(255) NOT NULL,
     DetailAddr VARCHAR(255) NOT NULL,
-    Note VARCHAR(255),
+    Note TEXT,
     Delivery_Fee INT NOT NULL,
     Total_Price INT NOT NULL,
     Method ENUM('CASH', 'MOMO', 'ZaloPay') NOT NULL,
@@ -164,12 +168,13 @@ VALUES
 ('user_9', 'pass123', 'Pham Van I', '0123456781', '1983-03-27', 'M', 'phamvani@example.com', '2023-09-11', 7000000, 'Chef', 5, NULL),
 ('user_10', 'pass123', 'Hoang Thi J', '0123456780', '1984-04-02', 'F', 'hoangthij@example.com', '2023-09-12', 3000000, 'Cashier', 5, NULL);
 
-INSERT INTO Promotion (Name, Application_Date, Expiration_Date, Application_Terms, Maximum_Discount, Discount_Method)
+INSERT INTO Promotion (Name, Short_Description, Image, Photo_Square, Application_Date, Expiration_Date, Application_Terms, Maximum_Discount, Discount_Method, Type)
 VALUES
-('Khuyến mãi', '2023-06-01', '2023-08-31', 'Áp dụng cho tất cả khách hàng', 10.00, 'PERCENTAGE'),
-('Giảm giá', '2023-09-01', '2023-09-30', 'Áp dụng cho đơn hàng trên 500,000 VND', 50.00, 'AMOUNT'),
-('Lần đầu', '2023-10-01', '2023-10-31', 'Chỉ áp dụng cho khách hàng mua lần đầu', 15.00, 'PERCENTAGE'),
-('Ưu đãi', '2023-12-01', '2023-12-25', 'Áp dụng cho mọi đơn hàng', 100.00, 'AMOUNT');
+('ĐẠI TIỆC GRILL, CHILL NGON LÀANH', 'Một buổi tụ tập ấm cúng với đồ nướng sẽ là dịp để mọi người quây quần bên nhau, cùng thưởng thức những món ăn ngon và trò chuyện vui vẻ:
+Khay Nướng BBQ Tổng Hợp: Thịt được tẩm ướp đậm đà, nướng chín vàng đều, thơm lừng.', 'https://thepizzacompany.vn/images/thumbs/000/0003918_grill-and-chill_500.jpeg', 'https://thepizzacompany.vn/images/thumbs/000/0003885_WebsiteBanner_TPC_KVFestivel_1200x480px.jpeg', '2023-06-01', '2023-08-31', 'Áp dụng cho tất cả khách hàng', 10.00, 'PERCENTAGE', 'KM'),
+('MUA 1 TẶNG 1 VÀO THỨ 3 THỨ 4', 'Mua 1 Pizza size M/L, tặng 1 Pizza (Đế Dày/Mỏng) dòng Classic cùng cỡ.', 'https://thepizzacompany.vn/images/uploaded/BOGO_WebBanner_(W1200xH480)px%20(1).jpg', 'https://thepizzacompany.vn/images/thumbs/000/0003880_bogo_500.jpeg', '2023-09-01', '2023-09-30', 'Áp dụng cho đơn hàng trên 100,000 VND', 50000, 'AMOUNT', 'KM'),
+('TIẾT KIỆM 50% CHO PIZZA THỨ 2','Mua 1 Pizza từ size M và 1 thức uống bất kỳ được giảm ngay 50% khi mua Pizza thứ 2, cùng cỡ. Bánh Pizza thứ 2 có giá trị bằng hoặc thấp hơn so với Pizza thứ nhất.','https://thepizzacompany.vn/50-off-second-pizza%20','https://thepizzacompany.vn/images/thumbs/000/0003873_50-off-second-pizza_500.jpeg', '2023-10-01', '2023-10-31', 'Chỉ áp dụng cho khách hàng mua lần đầu', 15.00, 'PERCENTAGE', 'KM'),
+('#UNBOX - TẶNG BỘ LY KHI MUA CÙNG PEPSI', 'Combo ưu đãi với mức giá tiết kiệm đến 50% và được lựa chọn món đa dạng trong Combo. Chỉ áp dụng cho đơn hàng đặt trên Website: thepizzacompany.vn và Hotline 19006066 hoặc mua mang về trực tiếp tại nhà hàng.', 'https://thepizzacompany.vn/images/uploaded/Unboxtangly_WebBanner_(W1200xH480)px.jpg', 'https://thepizzacompany.vn/images/thumbs/000/0003879_unbox_500.jpeg', '2023-12-01', '2023-12-25', 'Áp dụng cho mọi đơn hàng', 0, 'AMOUNT', 'Unbox');
 
 
 INSERT INTO Product (Name, Price, Photo, Description, Type) 
