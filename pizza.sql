@@ -84,7 +84,7 @@ CREATE TABLE Bill (
     Discount_Price DECIMAL(10, 2),
     Discount_Percent DECIMAL(5, 2),
     FOREIGN KEY (Promotion_ID) REFERENCES Promotion(Promotion_ID),
-    FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID),
+    FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID)
 );
 
 CREATE TABLE Product (

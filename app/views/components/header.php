@@ -4,21 +4,10 @@
             <div class="container container-horizontal">
                 <img src="http://thepizzacompany.vn/images/thumbs/000/0003645_VN_ngang_n.png" alt="logo" class="page-header__img">
 
-                <!-- <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <button type="button" class="btn btn-outline-primary">Left</button>
-                    <button type="button" class="btn btn-outline-primary">Right</button>
-                </div>
-
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                </form> -->
-
                 <div class="right-wrap">
                     <div>
-                        <a href="../app/views/client/account/sign-in.php" class="btn btn-success">Đăng nhập</a>
-                        <a href="http://localhost/account/sign_up" class="btn btn-success">Đăng ký</a>
-                        <!-- <button type="button" class="btn btn-outline-success" onclick="window.location.href='http://localhost/account/sign-in'">Đăng nhập</button>
-                        <button type="button" class="btn btn-outline-success" onclick="sign_up()">Đăng ký</button> -->
+                        <a href="http://localhost/Home/sign_in" class="btn btn-success">Đăng nhập</a>
+                        <a href="http://localhost/Home/sign_up" class="btn btn-success">Đăng ký</a>
                     </div>
                 </div>
             </div>

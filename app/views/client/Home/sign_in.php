@@ -1,29 +1,29 @@
 <?php
 
   $showError = "false";
-  if($_SERVER["REQUEST_METHOD"] == "POST")
+  if (isset($_POST['submit'])) 
   {
-      include '../../../core/Database.php';
       $phone = $_POST['phone'];
-      $pass = $_POST['password'];
+      $password = $_POST['password'];
 
-      $sql = "SELECT * from 'Customer' where Phone='$phone'";
-      $result = mysqli_query($con, $sql);
-      $numRows = mysqli_num_rows($result);
+      $data["model"] = new Database();
+      if(!$data["model"]->con)
+      {
+          die('Connection failed: ' . mysqli_connect_error());
+      }
+      $select = mysqli_query($data["model"]->con, "SELECT * FROM `Customer` WHERE Phone = '$phone' AND Password = '$password'");
+      $row = mysqli_fetch_array($select);
       if($numRows == 1)
       {
-          $row = mysqli_fetch_assoc($result);
-          $hash = password_hash($pass, PASSWORD_DEFAULT); 
-          if(password_verify($pass, $row['password'])){
+          $row = mysqli_fetch_assoc($select);
+          if(password_verify($password, $row['password'])){
               session_start();
               $_SESSION['loggedin'] = true;
-              $_SESSION['sno'] = $row['sno'];
               $_SESSION['phone'] = $phone;
-              // echo "logged in";
           } 
-          header("Location: /Home/index.php");  
+          header("Location: http://localhost");  
       }
-      header("Location: /Home/index.php");  
+      header("Location: http://localhost/Home/sign_in"); 
   }
 
 ?>
@@ -58,7 +58,7 @@
                     <a href="https://thepizzacompany.vn/chinh-sach-bao-mat" style="display: inline; color: rgb(86, 194, 62);">(đọc)</a>
                 </div>
                 <div class="d-grid gap-2">
-                  <input type="submit" value="Đăng Nhập" class="btn btn-primary register-button">
+                    <input type="submit" name="submit" value="Đăng Nhập" class="btn btn-primary register-button">
                 </div>
               </form>
             </div>

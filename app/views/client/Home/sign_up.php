@@ -20,9 +20,9 @@
 
         if($num == 0) { 
             if(($password == $confirm_password) && $exists==false) { 
-                $hash = password_hash($password, PASSWORD_DEFAULT); 
+                // $hash = password_hash($password, PASSWORD_DEFAULT); 
                 $sql = "INSERT INTO `Customer` ( `Name`, `Phone`, `Email`, `Password`) 
-                        VALUES ('$name', '$phone', '$email', '$hash')"; 
+                        VALUES ('$name', '$phone', '$email', 'password')"; 
         
                 $result = mysqli_query($con, $sql); 
         
