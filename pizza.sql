@@ -61,7 +61,7 @@ CREATE TABLE `Order` (
     Order_Date DATETIME NOT NULL,
     Note TEXT,
     Status ENUM('PROCESSING', 'CONFIRMED', 'COMPLETED', 'CANCELLED') NOT NULL,
-    Total_Price DECIMAL(10, 2) NOT NULL,
+    Total_Price INT NOT NULL,
     Customer_ID INT,
     Cashier_ID INT,
     Branch_ID INT,
@@ -213,8 +213,29 @@ INSERT INTO Product (Name, Price, Photo, Description, Type)
 
 
 
+INSERT INTO Bill (Customer_ID, Order_ID, Name, Phone, Province, District, DetailAddr, Note, Delivery_Fee, Total_Price, Method, Promotion_ID)
+VALUES
+(1, 1, 120000, 'Le Phan Thuy Tien', '0123456789' 'Thanh pho HCM', 'Thanh pho Thu Duc', '123 ACB', 'it ngot', 20000, 100000, 'ZaloPay', 1),
+(5, 3, 120000, 'Sugar cua Ha', '0123456789' 'Thanh pho HCM', 'Thanh pho Thu Duc', '123 ACB', 'it ngot', 20000, 300000, 'MOMO', 2),
+(30, 4, 120000, 'DHT', '0123456789' 'Thanh pho HCM', 'Thanh pho Thu Duc', '123 ACB', 'it ngot', 20000, 70000, 'ZaloPay', 4),
+(11, 2, 120000, 'Lap trinh Web', '0123456789' 'Thanh pho HCM', 'Thanh pho Thu Duc', '123 ACB', 'it ngot', 20000, 100000, 'ZaloPay', 1);
 
 
+INSERT INTO `Order` (Order_Date, Note,Total_Price,Status, Customer_ID, Cashier_ID, Branch_ID)
+VALUES
+('2023-11-21', 'Ghi chú mẫu 1',120000,'PROCESSING', 1, 2, 1),
+('2023-11-23', 'Ghi chú mẫu 2',160000,'COMPLETED', 2, 4, 2),
+('2023-11-25', 'Ghi chú mẫu 3',80000,'CANCELLED', 3, 6, 3),
+('2023-11-27', 'Ghi chú mẫu 4',30000,'COMPLETED', 4, 8, 4),
+('2023-11-29', 'Ghi chú mẫu 5',40000,'PROCESSING', 5, 10, 5);
 
-
+INSERT INTO Order_Line (Order_ID, Product_ID, Quantity, Total_Price)
+VALUES
+(1, 4, 2, 80000),
+(1, 8, 1, 40000),
+(2, 12, 1, 50000),
+(2, 5, 1, 30000),
+(2, 3, 2, 60000),
+(4, 9, 1, 30000),
+(5, 14, 1, 40000);
 
