@@ -1,9 +1,9 @@
 <?php
-    $conn = mysqli_connect("localhost","root","","shop");
+    $conn = mysqli_connect("localhost","root","","pizzaCompany");
     if (!$conn) {
         die('Connect Error (' . mysqli_connect_errno() . ') '. mysqli_connect_error());
     }
-    $q = "SELECT * FROM `products`";
+    $q = "SELECT * FROM `Product`";
     $ret = mysqli_query($conn,$q);
 
     
@@ -29,14 +29,14 @@
                                 menuHTML += `    
                                     <div class="col-sm-12 col-lg-3 grid-cell">
                                         <div class="row">
-                                            <div class="col d-flex align-items-center dish-cover-container"><img class="dish-cover" src="${list[i].image}"></div>
+                                            <div class="col d-flex align-items-center dish-cover-container"><img class="dish-cover" src="${list[i].Photo}"></div>
                                             <div class="col pl-2">
-                                                <div class="row dish-name"><a class="dish-link">${list[i].name}</a></div>
-                                                <div class="row dish-description" >${list[i].description}</div>
+                                                <div class="row dish-name"><a class="dish-link">${list[i].Name}</a></div>
+                                                <div class="row dish-description" >${list[i].Description}</div>
                                                 <div class="row price-row">
                                                     <div class="col d-block d-md-flex price-detail">
                                                         <p class="price-from">Giá chỉ từ</p>
-                                                        <p class="price">${list[i].price} VND</p>
+                                                        <p class="price">${list[i].Price} VND</p>
                                                     </div>
 
                                                     <div class="col inside-column buy-button-container">
