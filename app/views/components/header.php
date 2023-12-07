@@ -1,3 +1,4 @@
+
 <header class="page-header">
     <div class="page-header__container">
     <div class="page-header__top">
@@ -28,6 +29,7 @@
         <!-- </div> -->
     </div>
 
+        <form action="./menu_grid.php" method="POST">
         <nav class="navbar navbar-expand-lg">
             <div class="collapse navbar-collapse" id="me-auto mb-2 mb-lg-0">
                 <div class="container-fluid navbar-container">
@@ -39,19 +41,23 @@
                             <a class="nav-link" aria-current="page" href="#">#unBox</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Pizza</a>
+                            <!-- <a class="nav-link" aria-current="page" href="#">Pizza</a> -->
+                            <input type="submit" name="submit" value="Pizza" class="nav-link nav-input-button" aria-current="page">
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Khai vị</a>
+                            <!-- <a class="nav-link" aria-current="page" href="#">Khai vị</a> -->
+                            <input type="submit" name="submit" value="Khai vị" class="nav-link nav-input-button" aria-current="page">
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Mỳ Ý</a>
+                            <!-- <a class="nav-link" aria-current="page" href="#">Mỳ Ý</a> -->
+                            <input type="submit" name="submit" value="Mỳ Ý" class="nav-link nav-input-button" aria-current="page">
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Salad</a>
+                            <!-- <a class="nav-link" aria-current="page" href="#">Salad</a> -->
+                            <input type="submit" name="submit" value="Salad" class="nav-link nav-input-button" aria-current="page">
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Thức uống</a>
+                        <input type="submit" name="submit" value="Thức uống" class="nav-link nav-input-button" aria-current="page">
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#">Thế mới chất!!</a>
@@ -66,8 +72,10 @@
                 </div>
             </div>
         </nav>
+        </form>
     </div>
 </header>
+
 
 <script>
     document.querySelector('.dropdown').addEventListener('mouseover', function() {
