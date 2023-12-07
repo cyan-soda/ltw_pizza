@@ -20,6 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
         if ($password === $row['Password']) {
             session_start();
+            // Lưu thông tin người dùng vào session
+            // $_SESSION['user_id'] = getUserId($phone);
             $_SESSION['Logged'] = true;
             $_SESSION['phone'] = $phone;
             header("Location: http://localhost");
