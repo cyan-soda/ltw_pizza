@@ -61,7 +61,7 @@
 
                                                     <div class="col inside-column buy-button-container">
                                                     <form action="./app/views/client/Home/orderlist.php" method="POST">
-                                                        <input type="submit" name="submit" value='${list[i].Product_ID}' class="buy-button">
+                                                        <button type="submit" name="submit" value='${list[i].Product_ID}' class="buy-button">Mua Ngay</button>
                                                     </form>
                                                     </div>
                                                 </div>
