@@ -1,7 +1,7 @@
 <?php
-    $showAlert = false;  
-    $showError = false;  
-    $exists = false;
+    $showAlert = "";  
+    $showError = "";  
+    $exists = "";
 
     if(isset($_POST['submit']))
     {
@@ -11,74 +11,72 @@
         $password = $_POST['password'];
         $confirm_password = $_POST['confirm-password'];
 
+        // $data["model"] = new Database();
+
+        // if (!$data["model"]->con) {
+        //     die('Connection failed: ' . mysqli_connect_error());
+        // }
+
+        if(($data["model"]->con)->query("INSERT INTO Customer (Name, Email, Phone, Password) VALUES ('$name', '$email','$phone', '$password')")){
+            echo "<script type='text/javascript'>alert('tao tai khoan thanh cong');
+            window.location.href = 'http://localhost/Home/index';
+            </script>";
+        }
+        else{
+            echo "<script type='text/javascript'>alert('tao tai khoan that bai');
+            window.location.href = 'http://localhost/Home/sign_up';
+            </script>";
+        }
+
+
         // add to database
-        $sql = "SELECT * from `Customer` where Phone='$phone'"; 
+        // $sql = "SELECT * from `Customer` where Phone='$phone'"; 
         
-        $result = mysqli_query($con, $sql); 
+        // $result = mysqli_query($data["model"]->con, $sql); 
     
-        $num = mysqli_num_rows($result); 
+        // $num = mysqli_num_rows($result); 
 
-        if($num == 0) { 
-            if(($password == $confirm_password) && $exists==false) { 
-                // $hash = password_hash($password, PASSWORD_DEFAULT); 
-                $sql = "INSERT INTO `Customer` ( `Name`, `Phone`, `Email`, `Password`) 
-                        VALUES ('$name', '$phone', '$email', 'password')"; 
+        // if($num == 0) { 
+        //     if(($password == $confirm_password) && $exists==false) { 
+        //         $sql = "INSERT INTO `Customer` ( `Name`, `Phone`, `Email`, `Password`) 
+        //                 VALUES ('$name', '$phone', '$email', '$password')"; 
         
-                $result = mysqli_query($con, $sql); 
+        //         $result = mysqli_query($data["model"]->con, $sql); 
         
-                if ($result) { 
-                    $showAlert = true;  
-                } 
-            }  
-            else {  
-                $showError = "Passwords do not match";  
-            }
-        }
+        //         if ($result) { 
+        //             $showAlert = true;  
+        //         } 
+        //     }  
+        //     else {  
+        //         $showError = "Passwords do not match";  
+        //     }
+        // }
 
-        if($num > 0) {
-            $exists = "Phone number already exists";
-        }
+        // if($num > 0) {
+        //     $exists = "Phone number already exists";
+        // }
     }
 
-    if($showAlert)
-    {
-        echo ' <div class="alert alert-success  
-            alert-dismissible fade show" role="alert"> 
-            <strong>Success!</strong> Your account is  
-            now created and you can login.  
-            <button type="button" class="close"
-                data-dismiss="alert" aria-label="Close">  
-                <span aria-hidden="true">×</span>  
-            </button>  
-        </div> ';
-    }
-
-    if($showError) 
-    { 
-        echo ' <div class="alert alert-danger  
-            alert-dismissible fade show" role="alert">  
-        <strong>Error!</strong> '. $showError.'
-    
-       <button type="button" class="close" 
-            data-dismiss="alert aria-label="Close"> 
-            <span aria-hidden="true">×</span>  
-       </button>  
-     </div> ';  
-   } 
-
-   if($exists) 
-   { 
-        echo ' <div class="alert alert-danger  
-            alert-dismissible fade show" role="alert"> 
-
-        <strong>Error!</strong> '. $exists.'
-        <button type="button" class="close" 
-            data-dismiss="alert" aria-label="Close">  
-            <span aria-hidden="true">×</span>  
-        </button> 
-        </div> ';  
-    } 
 ?>
+
+<?php if ($showError): ?>
+    <div class="alert alert-danger" role="alert">
+        <?php echo $showError; ?>
+    </div>
+<?php endif; ?>
+
+<?php if ($showAlert): ?>
+    <div class="alert alert-success" role="alert">
+        <?php echo $showAlert; ?>
+    </div>
+<?php endif; ?>
+
+<?php if ($exists): ?>
+    <div class="alert alert-danger" role="alert">
+        <?php echo $exists; ?>
+    </div>
+<?php endif; ?>
+
  
 
 <div class="page-wrapper">
@@ -92,14 +90,14 @@
         <div class="center-tab">
         <div class="col-md-12" id="register">
             <div style="margin-bottom: 20px;"><h2>Tạo tài khoản</h2></div>
-            <form action="" method="POST">
+            <form action="" method="POST" onsubmit="return validateForm()">
             <div class="form-group">
                 <label for="name">Họ và Tên</label> <p style="color: red; display: inline;">*</p>
-                <input type="text" class="form-control" name="name" id="name">
+                <input type="text" class="form-control" name="name" id="name" required>
             </div>
             <div class="form-group">
                 <label for="phone">Số điện thoại</label> <p style="color: red; display: inline;">*</p>
-                <input type="text" class="form-control" name="phone" id="phone">
+                <input type="text" class="form-control" name="phone" id="phone" required>
             </div>
             <div class="form-group">
                 <label for="email">E-mail</label>
@@ -107,11 +105,11 @@
             </div>
             <div class="form-group">
                 <label for="password">Mật khẩu</label> <p style="color: red; display: inline;">*</p>
-                <input type="password" class="form-control" name="password" id="password">
+                <input type="password" class="form-control" name="password" id="password" required>
             </div>
             <div class="form-group">
                 <label for="confirm-password">Xác nhận mật khẩu</label> <p style="color: red; display: inline;">*</p>
-                <input type="password" class="form-control" name="confirm-password" id="confirm-password">
+                <input type="password" class="form-control" name="confirm-password" id="confirm-password" required>
             </div>
             <div style="display: flex; align-items: center; padding: 5px;">
                 <input type="checkbox" name="agree" id="agree" style="margin: 5px;">
@@ -151,5 +149,16 @@
         if(!(document.getElementById("password").value == document.getElementById("confirm-password").value))
             alert("Passwords do not match!");
         return (document.getElementById("password").value == document.getElementById("confirm-password").value);
+    }
+</script>
+
+<script>
+    function validateForm() {
+        var agreeCheckbox = document.getElementById('agree');
+        if (!agreeCheckbox.checked) {
+            alert('Bạn phải đồng ý với điều khoản để đăng nhập.');
+            return false; 
+        }
+        return true; 
     }
 </script>
