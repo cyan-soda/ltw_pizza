@@ -29,7 +29,7 @@
                 <div class="container-fluid navbar-container">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Khuyến mãi</a>
+                            <a class="nav-link" aria-current="page" href="#" >Khuyến mãi</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="#">#unBox</a>

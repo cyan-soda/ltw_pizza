@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="public/css/orderlist.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="public/css/carousel.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="public/css/popup_orderlist.css" />
+    <link rel="stylesheet" href="public/css/menu.css" />
     <link rel="stylesheet" href="public/css/popup_productdetail.css?v=<?php echo time(); ?>" />
     <link rel="stylesheet" href="public/css/uikit.min.css" />
     <link rel="stylesheet" href="public/css/bootstrap.min.css" />
