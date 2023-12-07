@@ -20,15 +20,15 @@
                     <div class="user-sidebar">
                         <div class="head-box userinfo">
                             <p>Tài khoản của</p>
-                            <p class="username">Nguyễn Thái Sơn</p>
+                            <?php echo '<p class="username">' . $_SESSION['name'] . '</p>'; ?>
                         </div>
                         <div class="head-body user-sidelink">
                             <ul>
-                                <li><a class="router-tag-a acitve" href="/account/info">Thông tin tài khoản</a></li>
-                                <li><a class="router-tag-a" href="/account/address">Sổ địa chỉ</a></li>
-                                <li><a class="router-tag-a" href="#">Lịch sử mua hàng</a></li>
-                                <li><a class="router-tag-a" href="/account/changepw">Đổi mật khẩu</a></li>
-                                <li><a class="router-tag-a" href="/account/voucher">Voucher của tôi</a></li>
+                                <li><a class="router-tag-a acitve" href="http://localhost/Home/info">Thông tin tài khoản</a></li>
+                                <li><a class="router-tag-a active" href="http://localhost/Home/address">Sổ địa chỉ</a></li>
+                                <li><a class="router-tag-a" href="http://localhost/Home/history">Lịch sử mua hàng</a></li>
+                                <li><a class="router-tag-a" href="http://localhost/Home/changepw">Đổi mật khẩu</a></li>
+                                <li><a class="router-tag-a" href="http://localhost/Home/voucher">Voucher của tôi</a></li>
                             </ul>
                         </div>
                     </div>
@@ -114,21 +114,24 @@
                         </form>
 
 
-                        <div class="history-table" style="padding: 15px; margin-bottom: 15px;">
-                        <p id="main-title-custom">ĐƠN HÀNG GẦN ĐÂY NHẤT</p>
-                        <table style="margin-top: 15px;">
-                            <thead>
-                                <tr>
-                                    <th class="code">Mã</th>
-                                    <th class="code">Sản phẩm</th>
-                                    <th class="code">Ngày mua</th>
-                                    <th class="code">Tổng tiền</th>
-                                    <th class="code">Trạng thái</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>
+                        <div class="address-table" style="margin-bottom: 30px;">
+                            <div class="row">
+                                <p class="col-lg-9"><?php echo '<p class="username col-lg-9" id="main-title-custom">' . $_SESSION['name'] . '</p>'; ?></p>
+                                <!-- <a class="col-lg-3 d-flex justify-content-end" href="http://localhost/Home/editInfo">Chỉnh sửa</a> -->
+                            </div>                  
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="td-title">Địa chỉ</td>
+                                        <td colspan="2"><?php echo '<p class="username">' . $_SESSION['street'] . ', ' . $_SESSION['ward'] . ', ' . $_SESSION['district'] . ', ' . $_SESSION['province'] . '</p>'; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="td-title">Số điện thoại</td>
+                                        <td colspan="2"><?php echo '<p class="username">' . $_SESSION['phone'] . '</p>'; ?></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     
                     </div>
                 </div>

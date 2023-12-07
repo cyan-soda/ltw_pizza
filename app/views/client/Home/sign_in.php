@@ -6,6 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     $phone = $_POST['phone'];
     $password = $_POST['password'];
 
+
     $data["model"] = new Database();
 
     if (!$data["model"]->con) {
@@ -20,10 +21,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 
         if ($password === $row['Password']) {
             session_start();
-            // Lưu thông tin người dùng vào session
-            // $_SESSION['user_id'] = getUserId($phone);
             $_SESSION['Logged'] = true;
             $_SESSION['phone'] = $phone;
+
+            $name = $row['Name'];
+            $_SESSION['name'] = $name;
+            $address = $row['Address'];
+            $_SESSION['address'] = $address;
+            $email = $row['Email'];
+            $_SESSION['email'] = $email;
+            $street = $row['Street'];
+            $_SESSION['street'] = $street;
+            $ward = $row['Ward'];
+            $_SESSION['ward'] = $ward;
+            $district = $row['District'];
+            $_SESSION['district'] = $district;
+            $province = $row['Province'];
+            $_SESSION['province'] = $province;
+            $password = $row['Password'];
+            $_SESSION['password'] = $password;
+
             header("Location: http://localhost");
             exit(); 
         } else {
