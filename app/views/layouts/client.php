@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="../../../public/css/carousel.css">
   <link rel="stylesheet" href="../../../public/css/popup_orderlist.css">
   <link rel="stylesheet" href="../../../public/css/menu.css">
+  <link rel="stylesheet" href="../../../public/css/orderlist.css">
   <!-- <link rel="stylesheet" href="../../../public/css/uikit.min.css"> -->
   <!-- <link id="dm-light" rel="stylesheet" href="../../../assignment/public/assets/css/light.css" > -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
