@@ -8,8 +8,22 @@
                     <img src="http://thepizzacompany.vn/images/thumbs/000/0003645_VN_ngang_n.png" alt="logo" class="page-header__img">
                 </div>
                 <div class="right-wrap">
-                    <a href="http://localhost/Home/sign_in" class="btn btn-success my-2 my-sm-0">Đăng nhập</a>
-                    <a href="http://localhost/Home/sign_up" class="btn btn-success my-2 my-sm-0">Đăng ký</a>
+                    <!-- <a href="http://localhost/Home/sign_in" class="btn btn-success my-2 my-sm-0">Đăng nhập</a>
+                    <a href="http://localhost/Home/sign_up" class="btn btn-success my-2 my-sm-0">Đăng ký</a> -->
+                    <?php
+                    if(isset($_SESSION['Logged']) && $_SESSION['Logged']==true){
+                        echo '
+                            <a href="http://localhost/Home/info" class="btn btn-success my-2 my-sm-0">Tài khoản</a>
+                            <a href="http://localhost/Home/sign_out" class="btn btn-success my-2 my-sm-0">Đăng xuất</a>
+                            ';
+                        }
+                        else{ 
+                        echo '
+                            <a href="http://localhost/Home/sign_in" class="btn btn-success my-2 my-sm-0">Đăng nhập</a>
+                            <a href="http://localhost/Home/sign_up" class="btn btn-success my-2 my-sm-0">Đăng ký</a>
+                            ';
+                        }
+                    ?>
                 </div>
             <!-- </div> -->
         <!-- </div> -->
