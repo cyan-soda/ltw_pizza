@@ -1,8 +1,8 @@
 -- SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 -- START TRANSACTION;
 SET time_zone = "+00:00";
-CREATE DATABASE pizzacompany;
-USE pizzacompany;
+CREATE DATABASE pizzaCompany;
+USE pizzaCompany;
 
 
 CREATE TABLE Customer (
@@ -75,6 +75,15 @@ CREATE TABLE `Order` (
     FOREIGN KEY (Branch_ID) REFERENCES Branch(Branch_ID)
 );
 
+CREATE TABLE Order_Line (
+    Order_ID INT,
+    Product_ID INT,
+    Quantity INT NOT NULL,
+    Total_Price INT NOT NULL,
+    PRIMARY KEY (Order_ID, Product_ID),
+    FOREIGN KEY (Order_ID) REFERENCES `Order`(Order_ID),
+    FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID)
+);
 
 CREATE TABLE Bill (
     Bill_ID INT AUTO_INCREMENT PRIMARY KEY,
