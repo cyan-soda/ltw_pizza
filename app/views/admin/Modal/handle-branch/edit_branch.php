@@ -1,29 +1,30 @@
 <?php
-require_once('db_connnection.php');
-
+require_once('db_connection.php');
 $id = $_POST['id'];
 $name = $_POST['name'];
-$phone = $_POST['phone'];
-$email = $_POST['email'];
-$password = $_POST['password'];
+$province = $_POST['province'];
+$district = $_POST['district'];
+$ward = $_POST['ward'];
+$street = $_POST['street'];
 
 $conn = OpenCon();
 
 // Thêm các trường cần cập nhật vào câu lệnh UPDATE
 $query = "
-    UPDATE `users` 
+    UPDATE `branch` 
     SET 
-        name = '" . $name . "',
-        email = '" . $email . "',
-        password = '" . $password . "',
-        phone = '" . $phone . "'
+        Name = '" . $name . "',
+        Province = '" . $province . "',
+        District = '" . $district . "',
+        Ward = '" . $ward . "',
+        Street = '" . $street . "'
     WHERE 
-        id = '" . $id . "'
+        Branch_ID = '" . $id . "'
 ";
 
 if ($conn->query($query) === TRUE) {
     echo "Successfully";
-    header('Location: manage-product.php.php');
+    header('Location: ../../manage-branch.php');
 } else {
     echo "Error: " . $query . "<br>" . $conn->error;
 }
