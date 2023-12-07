@@ -1,29 +1,38 @@
 <?php
-require_once('db_connnection.php');
+require_once('db_connection.php');
 
-$id = $_POST['Employee_ID'];
-$name = $_POST['Name'];
-$phone = $_POST['Phone_Number'];
-$email = $_POST['Email'];
-$password = $_POST['Password'];
+$id = $_POST['id']; // Retrieve the ID from the POST data
+
+$user_name = $_POST['user_name'];
+$name = $_POST['name'];
+$phone = $_POST['phone'];
+$email = $_POST['email'];
+$dob = $_POST['dob'];
+$sex = $_POST['sex'];
+$salary = $_POST['salary'];
+$jobtype = $_POST['jobtype'];
 
 $conn = OpenCon();
 
 // Thêm các trường cần cập nhật vào câu lệnh UPDATE
 $query = "
-    UPDATE `users` 
+    UPDATE `employee` 
     SET 
-        name = '" . $name . "',
-        email = '" . $email . "',
-        password = '" . $password . "',
-        phone = '" . $phone . "'
+        UserName = '" . $user_name . "',
+        Name = '" . $name . "',
+        Email = '" . $email . "',
+        DoB = '" . $dob . "',
+        Phone_Number = '" . $phone . "',  
+        Sex = '" . $sex . "',
+        Salary = '" . $salary . "',
+        Job_Type = '" . $jobtype . "'
     WHERE 
-        id = '" . $id . "'
+        Employee_ID = '" . $id . "'
 ";
 
 if ($conn->query($query) === TRUE) {
     echo "Successfully";
-    header('Location: manage-product.php.php');
+    header('Location: ../../manage-employee.php');
 } else {
     echo "Error: " . $query . "<br>" . $conn->error;
 }
