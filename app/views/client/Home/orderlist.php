@@ -1,3 +1,19 @@
+<?php
+    $conn = mysqli_connect("localhost","root","","pizzaCompany");
+    if (!$conn) {
+        die('Connect Error (' . mysqli_connect_errno() . ') '. mysqli_connect_error());
+    }
+
+    $id = 1;
+    if (isset($_POST["submit"])) {
+        $id=$_POST["submit"];
+    }
+    $q = "SELECT * FROM `Product` WHERE Product_ID='$id'";
+    $ret = mysqli_query($conn,$q);
+    if ($ret) {
+        $row = mysqli_fetch_assoc($ret);
+    }
+?>
 <div class="orderpage container mx-auto">
     <div class="titlepage">
         <h3>Sản phẩm</h3>
@@ -9,7 +25,7 @@
                     <img src="https://thepizzacompany.vn/images/thumbs/000/0003791_caramelized-french-onion-cheese-tart_500.jpeg" class="productimage"  alt="Ảnh của product"></img>
                 </div>
                 <div class="order_productinfor col-sm-8 col-6">
-                    <div class="order_product_inforname">Tên này</div>
+                    <div class="order_product_inforname"><?php echo $row["Name"];?></div>
                     <div class="order_product_select">Thuộc tính ở đây nè</div>
                 </div>
             </div>
