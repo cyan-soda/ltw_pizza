@@ -1,17 +1,18 @@
 <header class="page-header">
     <div class="page-header__container">
-        <div class="page-header__top">
-            <div class="container container-horizontal">
-                <img src="http://thepizzacompany.vn/images/thumbs/000/0003645_VN_ngang_n.png" alt="logo" class="page-header__img">
-
-                <div class="right-wrap">
-                    <div>
-                        <a href="http://localhost/Home/sign_in" class="btn btn-success">Đăng nhập</a>
-                        <a href="http://localhost/Home/sign_up" class="btn btn-success">Đăng ký</a>
-                    </div>
+    <div class="page-header__top">
+        <!-- <div class="container"> -->
+            <!-- <div class="row"> -->
+                <div class="logo-wrap">
+                    <img src="http://thepizzacompany.vn/images/thumbs/000/0003645_VN_ngang_n.png" alt="logo" class="page-header__img">
                 </div>
-            </div>
-        </div>
+                <div class="right-wrap">
+                    <a href="http://localhost/Home/sign_in" class="btn btn-success my-2 my-sm-0">Đăng nhập</a>
+                    <a href="http://localhost/Home/sign_up" class="btn btn-success my-2 my-sm-0">Đăng ký</a>
+                </div>
+            <!-- </div> -->
+        <!-- </div> -->
+    </div>
 
         <nav class="navbar navbar-expand-lg">
             <div class="collapse navbar-collapse" id="me-auto mb-2 mb-lg-0">

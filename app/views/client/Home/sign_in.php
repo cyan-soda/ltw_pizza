@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
                 <div><p style="display: inline;">Bạn đã có tài khoản chưa?</p> <a style="display: inline;" href="http://localhost/Home/sign_up">Tạo tài khoản</a></div>
                 <br>
                 <div style="display: flex; align-items: center; padding: 5px;">
-                    <input type="checkbox" name="agree" id="agree" style="margin: 5px;" required>
+                    <input type="checkbox" name="agree" id="agree" style="margin: 5px;">
                     <label for="agree" style="display: inline; cursor: pointer;">Khách hàng đồng ý cung cấp Thông Tin Cá Nhân và cho phép The Pizza Company sử dụng Thông Tin Cá Nhân phù hợp với Chính sách bảo mật này.</label>
                     <a href="https://thepizzacompany.vn/chinh-sach-bao-mat" style="display: inline; color: rgb(86, 194, 62);">(đọc)</a>
                 </div>
