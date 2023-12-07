@@ -21,6 +21,20 @@
             echo $layout;
         }
 
+        public function sign_out()
+        {
+            $model = $this->model("UserModel");
+            $layout = $this->view("layouts/client", ["page" => "client/Home/sign_out", "header"=>"components/header", "footer"=>"components/footer", "model" => $model]);
+            echo $layout;
+        }
+
+        public function info()
+        {
+            $model = $this->model("UserModel");
+            $layout = $this->view("layouts/client", ["page" => "client/Home/info", "header"=>"components/header", "footer"=>"components/footer", "model" => $model]);
+            echo $layout;
+        }
+
         function catalog(){
             //load Model
             $product = $this->model("ProductModel");

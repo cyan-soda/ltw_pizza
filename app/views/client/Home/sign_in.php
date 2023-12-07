@@ -18,9 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
     if ($numRows == 1) {
         $row = mysqli_fetch_assoc($select);
 
-        if (password_verify($password, $row['Password'])) {
+        if ($password === $row['Password']) {
             session_start();
-            $_SESSION['loggedin'] = true;
+            $_SESSION['Logged'] = true;
             $_SESSION['phone'] = $phone;
             header("Location: http://localhost");
             exit(); 
