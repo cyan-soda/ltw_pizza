@@ -222,6 +222,43 @@
     <?php include '../../components/footer.php' ?>
 </body>
 
+Thuỷ Tiên
+<script>
+        // Simulated district data (replace this with actual data from a database or API)
+        const districtData = {
+            HCM: ["Quận 1", "Quận 2", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 9", "Quận 10", "Quận 11","Quận 12", "Quận Tân Bình", "Quận Bình Thạnh", "Quận Gò Vấp", "Quận Phú Nhuận", "Thành phố Thủ Đức", "Huyện Bình Chánh", "Huyện Hóc Môn", "Huyện Nhà Bè"],
+            HN: ["Huyện Gia Lâm", "Huyện Hoài Đức", "Huyện Thanh Trì", "Quận Ba Đình", "Quận Bắc Từ Liêm", "Quận Cầu Giấy", "Quận Đống Đa", "Quận Hà Đông", "Quận Hai Bà Trưng", "Quận Hoàn Kiếm", "Quận Hoàng Mai", "Quận Long Biên", "Quận Nam Từ Liêm", "Quận Tây Hồ", "Quận Thanh Xuân"]
+            // Add more districts for each province
+        };
 
+        function updateDistricts() {
+            const provinceSelect = document.getElementById("provinceSelect");
+            const districtSelect = document.getElementById("districtSelect");
+            
+            // Get the selected province
+            const selectedProvince = provinceSelect.value;
+
+            // Clear existing district options
+            districtSelect.innerHTML = "";
+
+            // Populate district options based on the selected province
+            if (selectedProvince in districtData) {
+                const districts = districtData[selectedProvince];
+                districts.forEach(district => {
+                    const option = document.createElement("option");
+                    option.value = district;
+                    option.text = district;
+                    districtSelect.appendChild(option);
+                });
+            } else {
+                const defaultOption = document.createElement("option");
+                defaultOption.text = "Select a Province first";
+                districtSelect.appendChild(defaultOption);
+            }
+        }
+
+    // Call updateDistricts initially to populate the initial state
+    updateDistricts();
+</script>
 
 </html>

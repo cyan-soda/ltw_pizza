@@ -1,8 +1,13 @@
 <?php
-    session_start();
+    // session_start();
     $showAlert = "";  
     $showError = "";  
     $exists = "";
+
+    if (isset($_SESSION["phone"])) {
+        echo '<script type = "text/javascript">
+        window.location.href = "http://localhost/Home/"</script>';
+    }
 
     if(isset($_POST['submit']))
     {
@@ -18,57 +23,57 @@
             die('Connection failed: ' . mysqli_connect_error());
         }
 
-        // if(($data["model"]->con)->query("INSERT INTO Customer (Name, Email, Phone, Password) VALUES ('$name', '$email','$phone', '$password')")){
-        //     echo "<script type='text/javascript'>alert('Tao tai khoan thanh cong!');
-        //     window.location.href = 'http://localhost/Home/index';
-        //     </script>";
-        // }
-        // else{
-        //     echo "<script type='text/javascript'>alert('Tao tai khoan that bai!');
-        //     window.location.href = 'http://localhost/Home/sign_up';
-        //     </script>";
-        // }
+        if(($data["model"]->con)->query("INSERT INTO Customer (Name, Email, Phone, Password) VALUES ('$name', '$email','$phone', '$password')")){
+            echo "<script type='text/javascript'>alert('Tao tai khoan thanh cong!');
+            window.location.href = 'http://localhost/Home/index';
+            </script>";
+        }
+        else{
+            echo "<script type='text/javascript'>alert('Tao tai khoan that bai!');
+            window.location.href = 'http://localhost/Home/sign_up';
+            </script>";
+        }
 
-        $sql = "SELECT * from `Customer` where Phone='$phone'"; 
+        // $sql = "SELECT * from `Customer` where Phone='$phone'"; 
         
-        $result = mysqli_query($data["model"]->con, $sql); 
+        // $result = mysqli_query($data["model"]->con, $sql); 
     
-        $num = mysqli_num_rows($result); 
+        // $num = mysqli_num_rows($result); 
 
-        if($num == 0) { 
-            if(($password === $confirm_password) && $exists==false) { 
-                $sql = "INSERT INTO `Customer` ( `Name`, `Phone`, `Email`, `Password`) 
-                        VALUES ('$name', '$phone', '$email', '$password')"; 
+        // if($num == 0) { 
+        //     if(($password === $confirm_password) && $exists==false) { 
+        //         $sql = "INSERT INTO `Customer` ( `Name`, `Phone`, `Email`, `Password`) 
+        //                 VALUES ('$name', '$phone', '$email', '$password')"; 
         
-                $result = mysqli_query($data["model"]->con, $sql); 
+        //         $result = mysqli_query($data["model"]->con, $sql); 
         
-                if ($result) { 
-                    echo "<div class='message'>
-                            <p>You are register successfully!</p>
-                        </div><br>";
-                    $showAlert = true; 
-                    header("Location: http://localhost/Home/index"); 
-                }
-                else {
-                    echo "<div class='message'>
-                            <p>This email is used, Try another One Please!</p>
-                        </div><br>";
-                }
-            }  
-            else {  
-                echo "<div class='message'>
-                <p>Password does not match.</p>
-                </div><br>";
-                $showError = "Passwords do not match"; 
-            }
-        }
+        //         if ($result) { 
+        //             echo "<div class='message'>
+        //                     <p>You are register successfully!</p>
+        //                 </div><br>";
+        //             $showAlert = true; 
+        //             header("Location: http://localhost/Home/index"); 
+        //         }
+        //         else {
+        //             echo "<div class='message'>
+        //                     <p>This email is used, Try another One Please!</p>
+        //                 </div><br>";
+        //         }
+        //     }  
+        //     else {  
+        //         echo "<div class='message'>
+        //         <p>Password does not match.</p>
+        //         </div><br>";
+        //         $showError = "Passwords do not match"; 
+        //     }
+        // }
 
-        if($num > 0) {
-            $exists = "Phone number already exists";
-        }
+        // if($num > 0) {
+        //     $exists = "Phone number already exists";
+        // }
     }
-    header("Location: http://localhost/Home/sign_up");
-
+    // header("Location: http://localhost/Home/sign_up");
+    // die();
 ?>
 
 <?php if ($showError): ?>
